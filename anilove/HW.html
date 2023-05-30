@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        header {
+            background-color: #272626;
+            color: #fff;
+            padding: 18px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        header p {
+            font-size: 20px;
+            margin: 0px 180px;
+            font-family: 'Lato', sans-serif;
+        }
+
+        header img {
+            width: 15px;
+            height: 15px;
+            padding: 0 5px;
+        }
+
+        .share {
+            width: 100px;
+            height: 20px;
+        }
+
+        .shareicon {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            position: relative;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+
+        .shareicon img {
+            width: 12px;
+            height: 12px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .head {
+            width: 1480px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            background-color: #fff;
+
+        }
+
+        .icon img {
+            width: 70px;
+            height: 70px;
+            float: left;
+            margin: 0px 15px 0px 150px;
+        }
+
+        h1 {
+            display: inline-block;
+            font-size: 50px;
+            margin: 10px 5px;
+            font-family: 'PT Serif', serif;
+
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 30px;
+            text-decoration: none;
+            color: #888;
+            font-size: 18px;
+            font-family: 'Lato', sans-serif;
+
+        }
+
+        .donate1 {
+            width: 170px;
+            display: flex;
+            margin: 10px 150px 0px 0px;
+            font-family: 'Lato', sans-serif;
+
+        }
+
+        .donate1 a {
+            font-size: 14px;
+            text-align: center;
+            padding: 16px;
+            color: rgb(251, 144, 44);
+            border: 2px solid rgb(251, 144, 44);
+            text-decoration: none;
+            height: 16px;
+
+        }
+
+        .donate1 a:hover {
+            transition: border-color .1s ease, background-color .1s ease, color .1s;
+            border-color: rgb(135, 190, 235);
+            background-color: rgb(135, 190, 235);
+            color: #fff;
+        }
+
+        .section1 {
+            height: 600px;
+            width: 100%;
+            background-image: url("/anilove/pic/asset 4.jpeg");
+            background-size: cover;
+            background-position: center center;
+        }
+
+        h2 {
+            padding: 200px 0 5px 180px;
+            font-size: 50px;
+            font-family: 'Lato', sans-serif;
+
+        }
+
+        h3 {
+            padding: 0 180px;
+            font-size: 80px;
+            color: rgb(135, 190, 235);
+            font-family: 'Lato', sans-serif;
+
+        }
+
+        .section1>p {
+            padding: 0 180px;
+            font-size: 24px;
+            font-family: 'Lato', sans-serif;
+
+        }
+
+        .donate2 {
+            width: 220px;
+            height: 70px;
+            display: flex;
+            margin: 40px 180px;
+            background-color: rgb(251, 144, 44);
+            font-family: 'Lato', sans-serif;
+
+        }
+
+        .donate2 a {
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            padding: 26px;
+            width: 220px;
+
+        }
+
+        .donate2 a:hover {
+            transition: background-color .1s;
+            background-color: #000;
+        }
+
+
+        .about {
+            display: flex;
+            justify-content: center;
+
+        }
+
+        h5 {
+            padding: 0px 0px 10px 0px;
+            font-size: 30px;
+            color: rgb(135, 190, 235);
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+        }
+
+        .content {
+            width: 1200px;
+        }
+
+        .content img {
+            width: 550px;
+            height: 550px;
+            float: left;
+
+        }
+
+        .content>h2 {
+            padding: 95px 0 5px 180px;
+            font-size: 50px;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .content>p {
+            padding: 20px 0px;
+            color: #888;
+            font-size: 14px;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .learn {
+            width: 220px;
+            height: 70px;
+            display: flex;
+            color: #fff;
+            margin: 40px 180px;
+            background-color: rgb(251, 144, 44);
+            font-family: 'Lato', sans-serif;
+
+        }
+
+        .learn a {
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            padding: 26px;
+            width: 220px;
+        }
+
+        .learn a:hover {
+            transition: background-color .1s;
+            background-color: #000;
+        }
+
+        .help {
+            width: 100%;
+
+            background-color: #f9f9f9;
+        }
+
+        .help>h2 {
+            padding: 100px 0px 5px 0px;
+            font-size: 50px;
+            text-align: center;
+
+        }
+
+        .help>h5 {
+            padding: 0px 0px 5px 0px;
+            font-size: 30px;
+            color: rgb(135, 190, 235);
+            text-align: center;
+        }
+
+        .pic {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pic1 {
+            width: 380px;
+            height: 450px;
+            background-image: url("/anilove/pic/asset 5.jpeg");
+            background-size: cover;
+            background-position: center center;
+            margin: 50px 15px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .pic1 p {
+            margin: 45px 0;
+            font-size: 34px;
+            color: #fff;
+            font-family: 'Lato', sans-serif;
+
+        }
+
+        .pic2 {
+            width: 380px;
+            height: 450px;
+            background-image: url("/anilove/pic/asset 6.jpeg");
+            background-size: cover;
+            background-position: center center;
+            margin: 50px 15px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+
+        }
+
+        .pic2 p {
+            margin: 45px 0;
+            font-size: 34px;
+            color: #fff;
+            font-family: 'Lato', sans-serif;
+
+        }
+
+        .pic3 {
+            width: 380px;
+            height: 450px;
+            background-image: url("/anilove/pic/asset 7.jpeg");
+            background-size: cover;
+            background-position: center center;
+            margin: 50px 15px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .pic3 p {
+            margin: 45px 0;
+            font-size: 34px;
+            color: #fff;
+            font-family: 'Lato', sans-serif;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <p><img src="/anilove/pic/phone-solid.svg" alt="">Toll-free: (123) 456-7890</p>
+        <div class="share">
+            <div class="shareicon"><a href="#"><img src="/anilove/pic/twitter.svg" alt=""></a></div>
+            <div class="shareicon"><a href="#"><img src="/anilove/pic/facebook-f.svg" alt=""></a></div>
+            <div class="shareicon"><a href="#"><img src="/anilove/pic/pinterest.svg" alt=""></a></div>
+            <div class="shareicon"><a href="#"><img src="/anilove/pic/linkedin-in.svg" alt=""></a></div>
+        </div>
+        </div>
+
+
+    </header>
+
+    <div class="head">
+        <div class="icon"><img src="/anilove/pic/asset 0.png" alt="">
+            <h1>Anilove</h1>
+        </div>
+        <nav>
+            <ul>
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Events</a>
+                <a href="#">News</a>
+                <a href="#">Contacts</a>
+            </ul>
+        </nav>
+        <div class="donate1">
+            <a href="#">DONATE NOW!</a>
+        </div>
+    </div>
+    <div class="section1">
+        <h2>Animals Need</h2>
+        <h3>YOUR Help!</h3>
+        <p>You can chip in with money & effort!</p>
+        <div class="donate2">
+            <a href="#">DONATE NOW!</a>
+        </div>
+    </div>
+    <div class="about">
+        <div class="content">
+            <img src="/anilove/pic/asset 1.jpeg" alt="">
+            <h2>About Us</h2>
+            <h5>What Makes Us Care About Pets?</h5>
+            <p>If it wasn’t for our founder’s childhood spent on a ranch in northern Texas, surrounded by domestic
+                animals
+                and pets all the time till she went to college – there might have been no Anilove animal shelter
+                now. So as
+                soon as she graduated with her Veterinary degree 12 years ago, she already knew what she will be
+                doing for a
+                living.</p>
+
+            <p>All in all, with thousands of animals saved off the streets and cared for every year, we hope to
+                encourage
+                much more pet adoptions to happen!</p>
+            <div class="learn">
+                <a href="#">LEARN MORE</a>
+            </div>
+        </div>
+    </div>
+    <div class="help">
+        <h2>How You Can Help</h2>
+        <h5>There Are Countless Ways You Can Join In & Help Us!</h5>
+        <div class="pic">
+            <div class="pic1">
+                <p>Volunteer</p>
+            </div>
+            <div class="pic2">
+                <p>Adopt</p>
+            </div>
+            <div class="pic3">
+                <p>Sponsor</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

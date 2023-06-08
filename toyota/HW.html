@@ -22,49 +22,43 @@
             flex-wrap: wrap;
             width: 100%;
             margin: auto;
+            padding-top: 50px;
         }
 
         .content {
             width: 100%;
-            margin-top: 50px;
-            box-sizing: border-box;
             position: relative;
         }
 
         .content:nth-child(odd) .title {
             font-family: 'Noto Sans TC', sans-serif;
-            position: absolute;
+            position: relative;
             display: flex;
             align-items: center;
             width: 360px;
-            height: 160px;
             background-color: red;
             left: 280px;
-            top: 50px;
         }
 
         .content:nth-child(even) .title {
             font-family: 'Noto Sans TC', sans-serif;
-            position: absolute;
+            position: relative;
             display: flex;
             align-items: center;
             width: 360px;
-            height: 160px;
             background-color: red;
             left: 890px;
-            top: 50px;
             z-index: 1;
         }
 
-        h1:nth-child(odd) {
+        .content:nth-of-type(odd) h1 {
             font-weight: normal;
             font-size: 55px;
             color: #fff;
-            margin-left: 25px;
             margin-right: -5px;
         }
 
-        h1:nth-child(even) {
+        .content:nth-of-type(even) h1 {
             font-weight: normal;
             font-size: 55px;
             color: #fff;
@@ -91,8 +85,7 @@
             display: inline-block;
             transform: rotate(90deg);
             line-height: .9;
-            margin-left: -35px;
-            margin-right: -10px;
+            margin: 10px -10px 10px -35px;
         }
 
         .content:nth-of-type(even) .num {
@@ -103,7 +96,7 @@
             display: inline-block;
             transform: rotate(90deg);
             line-height: .9;
-            margin: 0 -15px 10px -10px;
+            margin: 10px -10px 10px -20px;
         }
 
         .content:nth-child(odd) .text {
@@ -112,9 +105,8 @@
             background-color: #000;
             padding: 5px 10px;
             box-sizing: border-box;
-            position: absolute;
+            position: relative;
             left: 280px;
-            top: 200px;
             z-index: 1;
         }
 
@@ -124,9 +116,8 @@
             background-color: #000;
             padding: 5px 10px;
             box-sizing: border-box;
-            position: absolute;
+            position: relative;
             left: 890px;
-            top: 200px;
             z-index: 1;
         }
 
@@ -152,7 +143,7 @@
             background-color: #f4f4f4;
             position: absolute;
             left: 820px;
-            top: 100px;
+            top: 50px;
         }
 
         .content:nth-child(even) .block {
@@ -168,7 +159,7 @@
             position: absolute;
             width: 70px;
             height: 100px;
-            top: 360px;
+            top: 310px;
             left: 1120px;
             z-index: 1;
         }
@@ -177,43 +168,38 @@
             position: absolute;
             width: 70px;
             height: 100px;
-            top: 360px;
+            top: 370px;
             left: 270px;
             z-index: 1;
         }
 
         .content:nth-child(odd) .pic {
-            width: 695px;
-            height: 430px;
             left: 50%;
             right: 50%;
-            top: 200px;
-            transform: translate(-43%, 0);
-            position: absolute;
-
+            top: -190px;
+            transform: translate(-19%, 0);
+            position: relative;
         }
 
         .content:nth-child(even) .pic {
-            width: 695px;
-            height: 430px;
             left: 50%;
             right: 50%;
-            top: 200px;
-            transform: translate(-69%, 0);
-            position: absolute;
-
+            top: -140px;
+            transform: translate(-31%, 0);
+            position: relative;
         }
 
         .pic img {
-            width: 100%;
-            height: 100%;
+            width: 695px;
+            height: 430px;
         }
 
         .content:nth-child(odd) .new {
             background-color: #f0f0f0;
             width: 710px;
             display: inline-block;
-            margin: 600px 0 30px 330px;
+            left: 330px;
+            top: -220px;
             position: relative;
             padding-bottom: 10px;
         }
@@ -222,7 +208,8 @@
             background-color: #f0f0f0;
             width: 710px;
             display: inline-block;
-            margin: 600px 0 30px 560px;
+            left: 560px;
+            bottom: 170px;
             position: relative;
             padding-bottom: 10px;
         }
@@ -290,8 +277,8 @@
                 <p>透過最佳重量分配，實現平順起步、直線穩定加速，過彎同時保持車身平穩，帶給駕駛更靈敏的道路反饋，享受隨心馳騁的行駛快感。</p>
             </div>
             <div class="block"> </div>
-            <div class="icon"><a href="#"><img src="pic/youtubechatgpt.svg" alt=""></a></div>
-            <div class="pic"><a href="#"><img src="pic/advantage-1-video-button-bg.png"></a></div>
+            <div class="icon"><a href="#"><img src="youtubechatgpt.svg" alt=""></a></div>
+            <div class="pic"><a href="#"><img src="/advantage-1-video-button-bg.png"></a></div>
             <div class="new">
                 <h3>因為我們做了這些革新</h3>
                 <span>低重心設計</span>
@@ -310,11 +297,10 @@
             <div class="text">
                 <h2>行車更安全的高剛性車體</h2>
                 <p>您的愛車會妥善保護您，強悍穩固的車身可使您安全無虞。世界級的安全科技讓你輕鬆自如享受旅程、毫無後顧之憂。</p>
-
             </div>
             <div class="block"> </div>
-            <div class="icon"><a href="#"><img src="pic/youtubechatgpt.svg" alt=""></a></div>
-            <div class="pic"><a href="#"><img src="pic/advantage-2-video-button-bg.png"></a></div>
+            <div class="icon"><a href="#"><img src="youtubechatgpt.svg" alt=""></a></div>
+            <div class="pic"><a href="#"><img src="/advantage-2-video-button-bg.png"></a></div>
             <div class="new">
                 <h3>因為我們做了這些革新</h3>
                 <span>主動安全</span>
@@ -331,11 +317,10 @@
             <div class="text">
                 <h2>令人放鬆舒適的車室空間</h2>
                 <p>車室空間設計著重人體工學，透過方向盤、踏板等位置優化，追求更舒適的駕駛位置，並以新型座椅設計，提高座椅包覆性，致力實現長途駕駛不疲勞的舒適駕馭體驗。</p>
-
             </div>
             <div class="block"> </div>
-            <div class="icon"><a href="#"><img src="pic/youtubechatgpt.svg" alt=""></a></div>
-            <div class="pic"><a href="#"><img src="pic/advantage-3-video-button-bg.png"></a></div>
+            <div class="icon"><a href="#"><img src="youtubechatgpt.svg" alt=""></a></div>
+            <div class="pic"><a href="#"><img src="/advantage-3-video-button-bg.png"></a></div>
             <div class="new">
                 <h3>因為我們做了這些革新</h3>
                 <span>駕駛位置最佳化</span>
@@ -354,11 +339,10 @@
             <div class="text">
                 <h2>使用者導向的貼心設計</h2>
                 <p>藉由高度人性化的介面整合、傳遞車輛資訊，豐富日常駕駛體驗。<br>從提升油耗表現到行李廂空間最適化，均細心考量，更加貼近使用者真正所需與習慣，並給予即時回應。 </p>
-
             </div>
             <div class="block"> </div>
-            <div class="icon"><a href="#"><img src="pic/youtubechatgpt.svg" alt=""></a></div>
-            <div class="pic"><a href="#"><img src="pic/advantage-4-video-button-bg.png"></a></div>
+            <div class="icon"><a href="#"><img src="youtubechatgpt.svg" alt=""></a></div>
+            <div class="pic"><a href="#"><img src="/advantage-4-video-button-bg.png"></a></div>
             <div class="new">
                 <h3>因為我們做了這些革新</h3>
                 <span>優異油耗表現</span>
@@ -375,11 +359,10 @@
             <div class="text">
                 <h2>極具吸引力的精心設計</h2>
                 <p>TNGA車款擁有讓人忍不住回頭的新潮外觀、讓駕駛充滿自信的駕馭快感！不僅讓車主能展現個人風格，也能讓擁有者都能引以為傲。 </p>
-
             </div>
             <div class="block"> </div>
-            <div class="icon"><a href="#"><img src="pic/youtubechatgpt.svg" alt=""></a></div>
-            <div class="pic"><a href="#"><img src="pic/advantage-5-video-button-bg.png"></a></div>
+            <div class="icon"><a href="#"><img src="youtubechatgpt.svg" alt=""></a></div>
+            <div class="pic"><a href="#"><img src="/advantage-5-video-button-bg.png"></a></div>
             <div class="new">
                 <h3>因為我們做了這些革新</h3>
                 <span>設計概念</span>

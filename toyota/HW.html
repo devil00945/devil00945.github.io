@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Epilogue:wght@100;200;300&family=Noto+Sans+TC:wght@100;300;400&display=swap"
+        rel="stylesheet">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .advantage {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            margin: auto;
+        }
+
+        .content {
+            width: 100%;
+            margin-top: 50px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .content:nth-child(odd) .title {
+            font-family: 'Noto Sans TC', sans-serif;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            width: 360px;
+            height: 160px;
+            background-color: red;
+            left: 280px;
+            top: 50px;
+        }
+
+        .content:nth-child(even) .title {
+            font-family: 'Noto Sans TC', sans-serif;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            width: 360px;
+            height: 160px;
+            background-color: red;
+            left: 890px;
+            top: 50px;
+            z-index: 1;
+        }
+
+        h1:nth-child(odd) {
+            font-weight: normal;
+            font-size: 55px;
+            color: #fff;
+            margin-left: 25px;
+            margin-right: -5px;
+        }
+
+        h1:nth-child(even) {
+            font-weight: normal;
+            font-size: 55px;
+            color: #fff;
+            margin-left: 10px;
+        }
+
+        .content:nth-of-type(1) .num {
+            font-family: 'Epilogue', sans-serif;
+            color: #fff;
+            font-size: 140px;
+            font-weight: 200;
+            display: inline-block;
+            transform: rotate(90deg);
+            line-height: .9;
+            margin-left: -25px;
+        }
+
+        .content:nth-of-type(3) .num,
+        .content:nth-of-type(5) .num {
+            font-family: 'Epilogue', sans-serif;
+            color: #fff;
+            font-size: 140px;
+            font-weight: 200;
+            display: inline-block;
+            transform: rotate(90deg);
+            line-height: .9;
+            margin-left: -35px;
+            margin-right: -10px;
+        }
+
+        .content:nth-of-type(even) .num {
+            font-family: 'Epilogue', sans-serif;
+            color: #fff;
+            font-size: 140px;
+            font-weight: 200;
+            display: inline-block;
+            transform: rotate(90deg);
+            line-height: .9;
+            margin: 0 -15px 10px -10px;
+        }
+
+        .content:nth-child(odd) .text {
+            width: 360px;
+            color: #fff;
+            background-color: #000;
+            padding: 5px 10px;
+            box-sizing: border-box;
+            position: absolute;
+            left: 280px;
+            top: 200px;
+            z-index: 1;
+        }
+
+        .content:nth-child(even) .text {
+            width: 360px;
+            color: #fff;
+            background-color: #000;
+            padding: 5px 10px;
+            box-sizing: border-box;
+            position: absolute;
+            left: 890px;
+            top: 200px;
+            z-index: 1;
+        }
+
+        h2 {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 24px;
+            margin: 10px;
+            font-weight: bolder;
+        }
+
+        .text p {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 20px;
+            font-weight: 100;
+            margin: -10px 10px 15px;
+            line-height: 1.5;
+            letter-spacing: 1px;
+        }
+
+        .content:nth-child(odd) .block {
+            width: 430px;
+            height: 280px;
+            background-color: #f4f4f4;
+            position: absolute;
+            left: 820px;
+            top: 100px;
+        }
+
+        .content:nth-child(even) .block {
+            width: 520px;
+            height: 400px;
+            background-color: #f4f4f4;
+            position: absolute;
+            left: 560px;
+            top: 100px;
+        }
+
+        .content:nth-child(odd) .icon img {
+            position: absolute;
+            width: 70px;
+            height: 100px;
+            top: 360px;
+            left: 1120px;
+            z-index: 1;
+        }
+
+        .content:nth-child(even) .icon img {
+            position: absolute;
+            width: 70px;
+            height: 100px;
+            top: 360px;
+            left: 270px;
+            z-index: 1;
+        }
+
+        .content:nth-child(odd) .pic {
+            width: 695px;
+            height: 430px;
+            left: 50%;
+            right: 50%;
+            top: 200px;
+            transform: translate(-43%, 0);
+            position: absolute;
+
+        }
+
+        .content:nth-child(even) .pic {
+            width: 695px;
+            height: 430px;
+            left: 50%;
+            right: 50%;
+            top: 200px;
+            transform: translate(-69%, 0);
+            position: absolute;
+
+        }
+
+        .pic img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .content:nth-child(odd) .new {
+            background-color: #f0f0f0;
+            width: 710px;
+            display: inline-block;
+            margin: 600px 0 30px 330px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .content:nth-child(even) .new {
+            background-color: #f0f0f0;
+            width: 710px;
+            display: inline-block;
+            margin: 600px 0 30px 560px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 18px;
+            color: red;
+            margin: 10px 30px;
+            font-weight: 400;
+        }
+
+        h3::after {
+            content: '';
+            display: inline-block;
+            width: 440px;
+            height: 1.5px;
+            vertical-align: middle;
+            background-color: red;
+            margin-left: 10px;
+        }
+
+        .new span {
+            font-family: 'Noto Sans TC', sans-serif;
+            display: inline-block;
+            font-weight: 300;
+            font-size: 16px;
+            background-color: #000;
+            color: #fff;
+            border-radius: 5%;
+            padding: 3px 3px;
+            margin: 0px 30px;
+        }
+
+        .new p {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-weight: 100;
+            font-size: 16px;
+            margin: 10px 32px;
+            padding-left: 1em;
+            text-indent: -1em;
+        }
+
+        .new p::before {
+            content: '';
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            background-color: red;
+            vertical-align: middle;
+            transform: scale(0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="advantage">
+        <div class="content">
+            <div class="title">
+                <span class="num">01</span>
+                <h1>操控樂趣</h1>
+            </div>
+            <div class="text">
+                <h2>人人滿意的駕駛體驗</h2>
+                <p>透過最佳重量分配，實現平順起步、直線穩定加速，過彎同時保持車身平穩，帶給駕駛更靈敏的道路反饋，享受隨心馳騁的行駛快感。</p>
+            </div>
+            <div class="block"> </div>
+            <div class="icon"><a href="#"><img src="pic/youtubechatgpt.svg" alt=""></a></div>
+            <div class="pic"><a href="#"><img src="pic/advantage-1-video-button-bg.png"></a></div>
+            <div class="new">
+                <h3>因為我們做了這些革新</h3>
+                <span>低重心設計</span>
+                <p>透過低重心設計，不僅呈現更低伏的外觀，更能減少車身側傾，保持高速行駛穩定性。</p>
+                <span>車體剛性強化</span>
+                <p>車身結構採用超高強度鋼材，提高車輛穩定性，同時藉由雷射強化焊接技術，大幅增加焊點數量，提升車身抗扭剛性，強化駕馭穩定性及安全性。</p>
+                <span>四輪獨立懸吊</span>
+                <p>搭載全新四輪獨立懸吊設定，透過懸吊的高乘載強度，保持輪胎抓地力，同時兼顧轉向靈敏度與清晰路感回饋，提升駕馭樂趣。</p>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title">
+                <h1>安全守護</h1>
+                <span class="num">02</span>
+            </div>
+            <div class="text">
+                <h2>行車更安全的高剛性車體</h2>
+                <p>您的愛車會妥善保護您，強悍穩固的車身可使您安全無虞。世界級的安全科技讓你輕鬆自如享受旅程、毫無後顧之憂。</p>
+
+            </div>
+            <div class="block"> </div>
+            <div class="icon"><a href="#"><img src="pic/youtubechatgpt.svg" alt=""></a></div>
+            <div class="pic"><a href="#"><img src="pic/advantage-2-video-button-bg.png"></a></div>
+            <div class="new">
+                <h3>因為我們做了這些革新</h3>
+                <span>主動安全</span>
+                <p>以先進的TSS系統，主動偵測路況，輔助駕駛判斷路況並維持行車安全。</p>
+                <span>被動安全</span>
+                <p>堅固的高剛性車體，使用熱沖壓材料的高強度抗扭鋼板，強化座艙對意外事故的保護力。</p>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title">
+                <span class="num">03</span>
+                <h1>乘坐舒適</h1>
+            </div>
+            <div class="text">
+                <h2>令人放鬆舒適的車室空間</h2>
+                <p>車室空間設計著重人體工學，透過方向盤、踏板等位置優化，追求更舒適的駕駛位置，並以新型座椅設計，提高座椅包覆性，致力實現長途駕駛不疲勞的舒適駕馭體驗。</p>
+
+            </div>
+            <div class="block"> </div>
+            <div class="icon"><a href="#"><img src="pic/youtubechatgpt.svg" alt=""></a></div>
+            <div class="pic"><a href="#"><img src="pic/advantage-3-video-button-bg.png"></a></div>
+            <div class="new">
+                <h3>因為我們做了這些革新</h3>
+                <span>駕駛位置最佳化</span>
+                <p>針對駕駛位置進行徹底的修改，讓駕馭者可如同握手般自然且舒適地操控方向盤。</p>
+                <span>駕馭視野佳</span>
+                <p>考量駕駛坐進車內的高度，透過前擋風玻璃位置的調整，達到盲區極小化，使駕駛視野更開闊，同步提升駕馭安全</p>
+                <span>更寧靜的車室</span>
+                <p>採用最新三層結構的隔音材料，與引擎、變速箱的零件改革，將座艙的震動抑制在最小限度，提供乘客舒適安靜的感受。</p>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title">
+                <h1>以人為本</h1>
+                <span class="num">04</span>
+            </div>
+            <div class="text">
+                <h2>使用者導向的貼心設計</h2>
+                <p>藉由高度人性化的介面整合、傳遞車輛資訊，豐富日常駕駛體驗。<br>從提升油耗表現到行李廂空間最適化，均細心考量，更加貼近使用者真正所需與習慣，並給予即時回應。 </p>
+
+            </div>
+            <div class="block"> </div>
+            <div class="icon"><a href="#"><img src="pic/youtubechatgpt.svg" alt=""></a></div>
+            <div class="pic"><a href="#"><img src="pic/advantage-4-video-button-bg.png"></a></div>
+            <div class="new">
+                <h3>因為我們做了這些革新</h3>
+                <span>優異油耗表現</span>
+                <p>以Corolla Sport為例，更強勁的高效引擎將熱效率提升至40%，達到世界級水準，屢屢突破燃油效率新境界。</p>
+                <span>行李箱空間最適化</span>
+                <p>以第四代Prius為例，透過將電池位置移到後座下方，讓行李箱擁有更大的空間。</p>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title">
+                <span class="num">05</span>
+                <h1>引以為傲</h1>
+            </div>
+            <div class="text">
+                <h2>極具吸引力的精心設計</h2>
+                <p>TNGA車款擁有讓人忍不住回頭的新潮外觀、讓駕駛充滿自信的駕馭快感！不僅讓車主能展現個人風格，也能讓擁有者都能引以為傲。 </p>
+
+            </div>
+            <div class="block"> </div>
+            <div class="icon"><a href="#"><img src="pic/youtubechatgpt.svg" alt=""></a></div>
+            <div class="pic"><a href="#"><img src="pic/advantage-5-video-button-bg.png"></a></div>
+            <div class="new">
+                <h3>因為我們做了這些革新</h3>
+                <span>設計概念</span>
+                <p>TNGA低重心設計，不僅呈現更低伏的運動化外觀，更講究高品質內裝的一致性。</p>
+                <span>環保概念</span>
+                <p>為了對環境保護盡一份心力，我們全面提升傳統引擎、變速箱與油電複合動力的動力效能。</p>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+</body>
+
+</html>

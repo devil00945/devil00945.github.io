@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: fit-content;
+            margin: 50px auto;
+        }
+        #guessednum{
+            overflow: scroll;
+            height: 100px;
+            background-color: bisque;
+        }
+        #guessednum p{
+            margin: 0;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button id="btn-start">遊戲開始</button>
+        <button id="btn-reset">重新開始</button>
+        <button id="btn-answer">看答案</button>
+        <br>
+        <br>
+        <input type="text" id="num-guess" placeholder="輸入1 ~ 100數字" onfocus="this.placeholder=''"
+            onblur="this.placeholder='輸入1 ~ 100數字'">
+        <button id="btn-guess">GO</button>
+        <br>
+        <p class="startmsg">請按遊戲開始</p>
+        <p class="range">目前範圍： 1 ~ 100</p>已猜次數： <span>0</span>
+        <p>目前已猜過的數字：</p>
+        <div id="guessednum">
+        </div>
+    </div>
+    <script>
+        let numGuess = document.getElementById("num-guess")
+        let btnGuess = document.getElementById("btn-guess")
+        let btnStart = document.getElementById("btn-start")
+        let btnReset = document.getElementById("btn-reset")
+        let btnShowAnswer = document.getElementById("btn-answer")
+        let startMsg = document.querySelector(".startmsg")
+        let rangeMsg = document.querySelector(".range")
+        let times = document.querySelector("span")
+        let guessedNum = document.getElementById("guessednum");
+        let isBtnAPressed = false
+        let guessedNumbers = []
+        let max = 100
+        let min = 1
+        let count = 0
+
+        window.onload = function () {
+            answer = "還沒開始遊戲哦"
+        }
+
+        btnStart.addEventListener("click", function () {
+            answer = Math.floor(Math.random() * max) + 1
+            console.log(answer)
+            isBtnAPressed = true
+            numGuess.value = ""
+            startMsg.innerText = "終極密碼已產生"
+        })
+
+        btnGuess.addEventListener("click", function () {
+            let input = numGuess.value
+            if (isBtnAPressed) {
+                if (isNaN(input) || input === "" || input.startsWith("0") || input.includes(".")) {
+                    alert("請輸入1~100的數字")
+                }
+                else if (input > max || input < min) {
+                    alert(`請輸入 ${min} ~ ${max}的數字`)
+                }
+                else if (input != answer) {
+                    if (input > answer) {
+                        max = input
+                    }
+                    else if (input < answer) {
+                        min = input
+                    }
+                    count++
+                    times.innerText = count
+                    guessedNumbers.push(input)
+                    displayGuessedNum()
+                }
+
+                else {
+                    alert(`猜對了 答案是${input}`)
+                    resetGame()
+                }
+                rangeMsg.innerText = `目前範圍： ${min} ~ ${max} `
+            }
+            else {
+                alert("請先按遊戲開始唷")
+            }
+            numGuess.value = ""
+        })
+
+        btnReset.addEventListener("click", function () {
+            resetGame()
+        })
+
+        function resetGame() {
+            numGuess.value = ""
+            rangeMsg.innerText = "目前範圍： 1 ~ 100"
+            times.innerText = 0
+            count = 0
+            guessedNum.innerText = ""
+            guessedNumbers = []
+            startMsg.innerText = "請按遊戲開始~"
+            isBtnAPressed = false
+            max = 100
+            min = 1
+            answer = "還沒開始遊戲哦"
+        }
+
+        btnShowAnswer.addEventListener("click", function () {
+            alert(answer)
+        })
+
+        function displayGuessedNum() {
+            // 清空已輸入數字元素的內容
+            guessedNum.innerText = ""
+            // 迭代陣列中的每個數字，並將其加入到已輸入數字元素中
+            guessedNumbers.reverse().forEach(function (inputnumber) {
+                let numberElement = document.createElement("p");
+                numberElement.innerText = inputnumber;
+                guessedNum.appendChild(numberElement);
+
+            });
+            guessedNumbers.reverse()
+        }
+
+    </script>
+
+
+</body>
+
+</html>

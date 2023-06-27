@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Monoton&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <title>1A2B Game</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            margin: 20px;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        .container {
+            width: 200px;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        h1 span {
+            font-family: 'Monoton', cursive;
+            font-weight: normal;
+            letter-spacing: 5px;
+            font-style: italic;
+            margin-right: 5px;
+        }
+
+        .ab {
+            color: #fff;
+            background-color: rgb(254, 20, 20);
+            margin: 5px;
+            border-radius: 10px;
+            font-size: 16px;
+            width: 60px;
+            height: 29.2px;
+        }
+
+        #guessInput {
+            width: 180px;
+            height: 25px;
+            font-size: 13px;
+            text-align: center;
+            position: relative;
+            right: 50%;
+            left: 50%;
+            transform: translateX(-50%)
+        }
+
+        #guessButton,
+        #answerButton,
+        #startButton,
+        #resetButton {
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        #startButton {
+            background-color: rgba(201, 63, 63, 0.5);
+        }
+
+        #startButton:hover {
+            background-color: rgb(239, 132, 132);
+        }
+
+        #guessButton {
+            margin: 10px 0px 10px;
+            background-color: rgba(61, 150, 222, 0.5);
+        }
+
+        #guessButton:hover {
+            background-color: rgba(61, 150, 222, 0.8);
+        }
+
+        #guessButton:disabled,
+        #answerButton:disabled,
+        #resetButton:disabled {
+            background-color: antiquewhite;
+        }
+
+        #resetButton {
+            margin: 10px 2px 10px;
+        }
+
+        .startMsg {
+            font-size: 16px;
+            text-align: center;
+        }
+
+        span {
+            margin: 0 10px;
+        }
+
+        #guessedNumHistory {
+            border: thick double #32a1ce;
+            height: 200px;
+            overflow: scroll;
+            background-color: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1><span>1A2B</span>遊戲</h1>
+        <div class="input">
+            <input type="text" id="guessInput" placeholder="輸入4個不重複且不為0的數字" onfocus="this.placeholder=''"
+                onblur="this.placeholder='輸入4個不重複且不為0的數字'">
+        </div>
+
+        <button id="guessButton">猜猜GO</button>
+        <button id="answerButton">放棄看答案QQ</button>
+        <p class="startMsg">請按遊戲開始</p>
+        <button id="startButton">遊戲開始GO</button>
+        <button id="resetButton">再玩一次</button>
+        <div id="guessedNumHistory"></div>
+    </div>
+
+
+    <script>
+
+        let guessInput = document.getElementById("guessInput");
+        let startButton = document.getElementById("startButton");
+        let guessButton = document.getElementById("guessButton");
+        let answerButton = document.getElementById("answerButton");
+        let resetButton = document.getElementById("resetButton");
+        let guessedNumHistory = document.getElementById("guessedNumHistory");
+        let startMsg = document.querySelector(".startMsg")
+        let span = document.createElement("span")
+
+        isBtnAPressed = false
+        guessButton.disabled = true
+        answerButton.disabled = true
+        resetButton.disabled = true
+        let guessednum = []
+        let guessedab = []
+        let nums = []
+        let answerNumber = ""
+        guessInput.value = ""
+        let count = 0
+
+
+        startButton.addEventListener("click", generateAnswerNumber)
+        guessButton.addEventListener("click", Guess)
+        resetButton.addEventListener("click", resetGame)
+        answerButton.addEventListener("click", function () {
+            if (isBtnAPressed) {
+                alert(answerNumber)
+            }
+            else {
+                alert("還沒開始遊戲哦")
+            }
+
+        })
+
+
+        function generateAnswerNumber() {
+            isBtnAPressed = true
+            answerButton.disabled = false
+            guessButton.disabled = false
+            resetButton.disabled = false
+            guessInput.value = ""
+            startMsg.innerText = "　"
+            nums = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+            while (answerNumber.length < 4) {
+                let randomIndex = Math.floor(Math.random() * nums.length)
+                let number = nums[randomIndex];
+                if (!answerNumber.includes(number)) {
+                    answerNumber += number
+                }
+            }
+            return answerNumber
+        }
+
+        function Guess() {
+            let input = guessInput.value
+            if (isBtnAPressed) {
+                if (isValidGuess(input)) {
+                    let result = countGuess(input);
+                    let guessString = `${input} : ${result.A}A ${result.B}B `
+                    guessednum.unshift(guessString)
+                    displayGuessHistory()
+                    guessInput.value = ""
+                    count++
+                    startMsg.innerText = `已猜次數 : ${count}`
+
+                    if (result.A === 4) {
+                        Win()
+                    }
+                }
+            }
+            else {
+                alert("還沒開始遊戲哦")
+            }
+        }
+
+        function isValidGuess(guess) {
+            let Num = guess.toString().split('')
+            let noRepeatNum = new Set(Num)
+            if (isNaN(guess) || guess === "" || guess.includes("0") || guess.includes(".") || noRepeatNum.size !== 4) {
+                alert("輸入4個不重複且不為0的數字")
+                guessInput.value = ""
+                return false
+            }
+            return true
+        }
+
+        function countGuess(guess) {
+            let A = 0
+            let B = 0
+            for (let i = 0; i < guess.length; i++) {
+                if (guess[i] === answerNumber[i]) {
+                    A++
+                } else if (answerNumber.includes(guess[i])) {
+                    B++
+                }
+            }
+            return { A, B }
+        }
+
+        function displayGuessHistory() {
+            guessedNumHistory.innerHTML = ""
+
+            for (let i = guessednum.length - 1; i >= 0; i--) {
+                let guessABHistory = guessednum[i]
+                let [numHistory, ABHistory] = guessABHistory.split(":")
+                let ab_btn = document.createElement("button")
+                ab_btn.setAttribute("class", "ab")
+                ab_btn.innerText = ABHistory
+
+                let guessHistory = document.createElement("span")
+                guessHistory.innerText = numHistory
+                let guessesContainer = document.createElement('div')
+                guessesContainer.appendChild(ab_btn)
+                guessesContainer.appendChild(guessHistory)
+                guessedNumHistory.insertBefore(guessesContainer, guessedNumHistory.firstChild)
+            }
+        }
+
+        function Win() {
+            guessButton.disabled = true
+            alert("恭喜猜到正確答案")
+            resetGame()
+        }
+
+        function resetGame() {
+            answerNumber.value = ""
+            guessInput.value = ""
+            span.innerText = 0
+            count = 0
+            guessedNumHistory.innerText = ""
+            guessednum = []
+            startMsg.innerText = "請按遊戲開始"
+            isBtnAPressed = false
+            answerButton.disabled = true
+            guessButton.disabled = true
+            resetButton.disabled = true
+            answer = "還沒開始遊戲哦"
+        }
+    </script>
+</body>
+
+</html>

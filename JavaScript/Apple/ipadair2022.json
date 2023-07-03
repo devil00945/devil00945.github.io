@@ -1,0 +1,25 @@
+[
+    { "id": "A001", "color": "太空灰色", "price": 19900, "storage": "64GB", "network": "Wi-Fi", "picture": "http://127.0.0.1:5500/Apple/spacegray.jpg" },
+    { "id": "A002", "color": "藍色", "price": 19900, "storage": "64GB", "network": "Wi-Fi", "picture": "http://127.0.0.1:5500/Apple/blue.jpg" },
+    { "id": "A003", "color": "粉紅色", "price": 19900, "storage": "64GB", "network": "Wi-Fi", "picture": "http://127.0.0.1:5500/Apple/pink.jpg" },
+    { "id": "A004", "color": "紫色", "price": 19900, "storage": "64GB", "network": "Wi-Fi", "picture": "http://127.0.0.1:5500/Apple/purple.jpg" },
+    { "id": "A005", "color": "星光色", "price": 19900, "storage": "64GB", "network": "Wi-Fi", "picture": "http://127.0.0.1:5500/Apple/starlight.jpg" },
+    
+    { "id": "B001", "color": "太空灰色", "price": 24900, "storage": "256GB", "network": "Wi-Fi", "picture": "http://127.0.0.1:5500/Apple/spacegray.jpg" },
+    { "id": "B002", "color": "藍色", "price": 24900, "storage": "256GB", "network": "Wi-Fi", "picture": "http://127.0.0.1:5500/Apple/blue.jpg" },
+    { "id": "B003", "color": "粉紅色", "price": 24900, "storage": "256GB", "network": "Wi-Fi", "picture": "http://127.0.0.1:5500/Apple/pink.jpg" },
+    { "id": "B004", "color": "紫色", "price": 24900, "storage": "256GB", "network": "Wi-Fi", "picture": "http://127.0.0.1:5500/Apple/purple.jpg" },
+    { "id": "B005", "color": "星光色", "price": 24900, "storage": "256GB", "network": "Wi-Fi", "picture": "http://127.0.0.1:5500/Apple/starlight.jpg" },
+   
+    { "id": "C001", "color": "太空灰色", "price": 24900, "storage": "64GB", "network": "Cellular", "picture": "http://127.0.0.1:5500/Apple/spacegray.jpg" },
+    { "id": "C002", "color": "藍色", "price": 24900, "storage": "64GB", "network": "Cellular", "picture": "http://127.0.0.1:5500/Apple/blue.jpg" },
+    { "id": "C003", "color": "粉紅色", "price": 24900, "storage": "64GB", "network": "Cellular", "picture": "http://127.0.0.1:5500/Apple/pink.jpg" },
+    { "id": "C004", "color": "紫色", "price": 24900, "storage": "64GB", "network": "Cellular", "picture": "http://127.0.0.1:5500/Apple/purple.jpg" },
+    { "id": "C005", "color": "星光色", "price": 24900, "storage": "64GB", "network": "Cellular", "picture": "http://127.0.0.1:5500/Apple/starlight.jpg" },
+    
+    { "id": "D001", "color": "太空灰色", "price": 29900, "storage": "256GB", "network": "Cellular", "picture": "http://127.0.0.1:5500/Apple/spacegray.jpg" },
+    { "id": "D002", "color": "藍色", "price": 29900, "storage": "256GB", "network": "Cellular", "picture": "http://127.0.0.1:5500/Apple/blue.jpg" },
+    { "id": "D003", "color": "粉紅色", "price": 29900, "storage": "256GB", "network": "Cellular", "picture": "http://127.0.0.1:5500/Apple/pink.jpg" },
+    { "id": "D004", "color": "紫色", "price": 29900, "storage": "256GB", "network": "Cellular", "picture": "http://127.0.0.1:5500/Apple/purple.jpg" },
+    { "id": "D005", "color": "星光色", "price": 29900, "storage": "256GB", "network": "Cellular", "picture": "http://127.0.0.1:5500/Apple/starlight.jpg" }
+]

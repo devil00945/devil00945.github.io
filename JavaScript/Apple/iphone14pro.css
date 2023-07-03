@@ -1,0 +1,187 @@
+body {
+    color: #6d6d6d;
+}
+
+.selected {
+    border: 1px solid rgb(29, 29, 174) !important;
+    border-radius: 50px
+        /* outline: none; */
+}
+
+.iphone {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.carousel-iphone-deskshow,
+.carousel-iphone {
+    margin: 20px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    display: none;
+}
+
+.btn:hover {
+    background-color: inherit;
+    color: inherit;
+}
+
+.btn-outline-secondary {
+    --bs-btn-active-bg: inherit;
+    --bs-btn-active-color: inherit;
+
+}
+
+
+.deskshow {
+    display: none;
+}
+
+.iphonecolorname {
+    margin-inline: 30px;
+    margin-block: 10px;
+    font-size: 18px;
+}
+
+.iphone-color,
+.iphone-storage,
+.iphone-size {
+    margin: 20px 10px 50px;
+}
+
+
+.iphone-size button,
+.iphone-storage button {
+    width: 340px;
+    height: 70px;
+    justify-content: center;
+    text-decoration: none;
+    align-items: start;
+    color: #6d6d6d;
+    border-radius: 15px;
+    padding-inline: 20px;
+}
+
+.iphone-size button:last-child {
+    width: 340px;
+    height: 70px;
+    justify-content: center;
+    text-decoration: none;
+    align-items: start;
+    color: #6d6d6d;
+    border-radius: 15px;
+    padding-inline: 20px;
+}
+
+.iphone-color button {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 30px;
+    padding: 0;
+    border: 0;
+}
+
+.iphone-color button img {
+    width: 30px;
+    height: 30px;
+
+}
+
+.iphone-color p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.iphone-storage p {
+    color: #000;
+    font-size: 16px;
+    margin: 0;
+}
+
+.iphone-storage span,
+.iphone-size span {
+    font-size: 12px;
+}
+
+.iphone-size p {
+    color: #000;
+    text-align: start;
+    margin-bottom: 0;
+}
+
+.iphonetotalPrice {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 50px;
+}
+
+button {
+    width: 100px;
+    font-size: 18px;
+    margin-inline: 10px;
+}
+
+@media screen and (min-width:768px) {
+    .titleiphone {
+        display: none;
+    }
+
+   
+    .carousel-iphone-deskshow {
+        margin: auto;
+        width: 900px;
+    }
+    .carousel-iphone {
+        display: none;
+    }
+
+    .iphone-pic {
+        height: 1px;
+        position: sticky;
+        top: 10%;
+    }
+.deskshow{
+    display: inherit;
+}
+    .iphone-color,
+    .iphone-storage,
+    .iphone-size {
+        margin: 20px 100px 50px 40px;
+    }
+
+    .iphonecolorname {
+        margin-inline: 50px;
+        margin-block: 10px;
+        font-size: 18px;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: #000;
+        border: 1px solid #000;
+        border-radius: 50%;
+    }
+
+    .iphone-size button,
+    .iphone-storage button {
+
+        height: 90px;
+
+    }
+
+    .iphone-size button:last-child {
+
+        height: 90px;
+
+    }
+
+    .iphonetotalPrice {
+        text-align: center;
+        font-size: 24px;
+        margin-right: 80px;
+        margin-bottom: 50px;
+    }
+}

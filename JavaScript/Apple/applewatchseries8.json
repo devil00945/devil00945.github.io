@@ -1,0 +1,35 @@
+[
+    { "id": "A001", "size": "41mm", "color": "橄欖色", "price": 14400, "network": "GPS",  "picture": "http://127.0.0.1:5500/Apple/applewatch/olive.jpg" },
+    { "id": "A002", "size": "41mm", "color": "鮮橙色", "price": 14400, "network": "GPS",  "picture": "http://127.0.0.1:5500/Apple/applewatch/orange.jpg" },
+    { "id": "A003", "size": "41mm", "color": "霧紫色", "price": 14400, "network": "GPS",  "picture": "http://127.0.0.1:5500/Apple/applewatch/mistpurple.jpg" },
+    { "id": "A004", "size": "41mm", "color": "午夜色", "price": 14400, "network": "GPS",  "picture": "http://127.0.0.1:5500/Apple/applewatch/midnight.jpg" },
+    { "id": "A005", "size": "41mm", "color": "Black Unity", "price": 14400, "network": "GPS",  "picture": "http://127.0.0.1:5500/Apple/applewatch/blackunity.jpg" },
+    { "id": "A006", "size": "41mm", "color": "驕傲特別版", "price": 14400, "network": "GPS",  "picture": "http://127.0.0.1:5500/Apple/applewatch/special.jpg" },
+    { "id": "A007", "size": "41mm", "color": "紅色", "price": 14400, "network": "GPS",  "picture": "http://127.0.0.1:5500/Apple/applewatch/red.jpg" },
+    
+    { "id": "B001", "size": "41mm", "color": "橄欖色", "price": 17400, "network": "mobile-network",  "picture": "http://127.0.0.1:5500/Apple/applewatch/olive.jpg" },
+    { "id": "B002", "size": "41mm", "color": "鮮橙色", "price": 17400, "network": "mobile-network",  "picture": "http://127.0.0.1:5500/Apple/applewatch/orange.jpg" },
+    { "id": "B003", "size": "41mm", "color": "霧紫色", "price": 17400, "network": "mobile-network",  "picture": "http://127.0.0.1:5500/Apple/applewatch/mistpurple.jpg" },
+    { "id": "B004", "size": "41mm", "color": "午夜色", "price": 17400, "network": "mobile-network",  "picture": "http://127.0.0.1:5500/Apple/applewatch/midnight.jpg" },
+    { "id": "B005", "size": "41mm", "color": "Black Unity", "price": 17400, "network": "mobile-network",  "picture": "http://127.0.0.1:5500/Apple/applewatch/blackunity.jpg" },
+    { "id": "B006", "size": "41mm", "color": "驕傲特別版", "price": 17400, "network": "mobile-network",  "picture": "http://127.0.0.1:5500/Apple/applewatch/special.jpg" },
+    { "id": "B007", "size": "41mm", "color": "紅色", "price": 17400, "network": "mobile-network",  "picture": "http://127.0.0.1:5500/Apple/applewatch/red.jpg" },
+    
+    { "id": "C001", "size": "45mm", "color": "橄欖色", "price": 15400, "network": "GPS",  "picture": "http://127.0.0.1:5500/Apple/applewatch/olive.jpg" },
+    { "id": "C002", "size": "45mm", "color": "鮮橙色", "price": 15400, "network": "GPS",  "picture": "http://127.0.0.1:5500/Apple/applewatch/orange.jpg" },
+    { "id": "C003", "size": "45mm", "color": "霧紫色", "price": 15400, "network": "GPS",  "picture": "http://127.0.0.1:5500/Apple/applewatch/mistpurple.jpg" },
+    { "id": "C004", "size": "45mm", "color": "午夜色", "price": 15400, "network": "GPS",  "picture": "http://127.0.0.1:5500/Apple/applewatch/midnight.jpg" },
+    { "id": "C005", "size": "45mm", "color": "Black Unity", "price": 15400, "network": "GPS",  "picture": "http://127.0.0.1:5500/Apple/applewatch/blackunity.jpg" },
+    { "id": "C006", "size": "45mm", "color": "驕傲特別版", "price": 15400, "network": "GPS",  "picture": "http://127.0.0.1:5500/Apple/applewatch/special.jpg" },
+    { "id": "C007", "size": "45mm", "color": "紅色", "price": 15400, "network": "GPS",  "picture": "http://127.0.0.1:5500/Apple/applewatch/red.jpg" },
+    
+    { "id": "D001", "size": "45mm", "color": "橄欖色", "price": 18400, "network": "mobile-network",  "picture": "http://127.0.0.1:5500/Apple/applewatch/olive.jpg" },
+    { "id": "D002", "size": "45mm", "color": "鮮橙色", "price": 18400, "network": "mobile-network",  "picture": "http://127.0.0.1:5500/Apple/applewatch/orange.jpg" },
+    { "id": "D003", "size": "45mm", "color": "霧紫色", "price": 18400, "network": "mobile-network",  "picture": "http://127.0.0.1:5500/Apple/applewatch/mistpurple.jpg" },
+    { "id": "D004", "size": "45mm", "color": "午夜色", "price": 18400, "network": "mobile-network",  "picture": "http://127.0.0.1:5500/Apple/applewatch/midnight.jpg" },
+    { "id": "D005", "size": "45mm", "color": "Black Unity", "price": 18400, "network": "mobile-network",  "picture": "http://127.0.0.1:5500/Apple/applewatch/blackunity.jpg" },
+    { "id": "D006", "size": "45mm", "color": "驕傲特別版", "price": 18400, "network": "mobile-network",  "picture": "http://127.0.0.1:5500/Apple/applewatch/special.jpg" },
+    { "id": "D007", "size": "45mm", "color": "紅色", "price": 18400, "network": "mobile-network",  "picture": "http://127.0.0.1:5500/Apple/applewatch/red.jpg" }    
+
+   
+]

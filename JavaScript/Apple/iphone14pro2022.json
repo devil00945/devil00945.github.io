@@ -1,0 +1,45 @@
+[
+    { "id": "A001", "size": "pro", "color": "深紫色", "price": 34900, "storage": "128GB",  "picture": "http://127.0.0.1:5500/Apple/deeppurple.jpg" },
+    { "id": "A002", "size": "pro", "color": "金色", "price": 34900, "storage": "128GB",  "picture": "http://127.0.0.1:5500/Apple/gold.jpg" },
+    { "id": "A003", "size": "pro", "color": "銀色", "price": 34900, "storage": "128GB",  "picture": "http://127.0.0.1:5500/Apple/silver.jpg" },
+    { "id": "A004", "size": "pro", "color": "太空黑色", "price": 34900, "storage": "128GB",  "picture": "http://127.0.0.1:5500/Apple/spaceblack.jpg" },
+    
+    { "id": "B001", "size": "pro", "color": "深紫色", "price": 38400, "storage": "256GB",  "picture": "http://127.0.0.1:5500/Apple/deeppurple.jpg" },
+    { "id": "B002", "size": "pro", "color": "金色", "price": 38400, "storage": "256GB",  "picture": "http://127.0.0.1:5500/Apple/gold.jpg" },
+    { "id": "B003", "size": "pro", "color": "銀色", "price": 38400, "storage": "256GB",  "picture": "http://127.0.0.1:5500/Apple/silver.jpg" },
+    { "id": "B004", "size": "pro", "color": "太空黑色", "price": 38400, "storage": "256GB",  "picture": "http://127.0.0.1:5500/Apple/spaceblack.jpg" },
+
+
+    { "id": "C001", "size": "pro", "color": "深紫色", "price": 45400, "storage": "512GB",  "picture": "http://127.0.0.1:5500/Apple/deeppurple.jpg" },
+    { "id": "C002", "size": "pro", "color": "金色", "price": 45400, "storage": "512GB",  "picture": "http://127.0.0.1:5500/Apple/gold.jpg" },
+    { "id": "C003", "size": "pro", "color": "銀色", "price": 45400, "storage": "512GB",  "picture": "http://127.0.0.1:5500/Apple/silver.jpg" },
+    { "id": "C004", "size": "pro", "color": "太空黑色", "price": 45400, "storage": "512GB",  "picture": "http://127.0.0.1:5500/Apple/spaceblack.jpg" },
+
+    { "id": "D001", "size": "pro", "color": "深紫色", "price": 52400, "storage": "1TB",  "picture": "http://127.0.0.1:5500/Apple/deeppurple.jpg" },
+    { "id": "D002", "size": "pro", "color": "金色", "price": 52400, "storage": "1TB",  "picture": "http://127.0.0.1:5500/Apple/gold.jpg" },
+    { "id": "D002", "size": "pro", "color": "銀色", "price": 52400, "storage": "1TB",  "picture": "http://127.0.0.1:5500/Apple/silver.jpg" },
+    { "id": "D002", "size": "pro", "color": "太空黑色", "price": 52400, "storage": "1TB",  "picture": "http://127.0.0.1:5500/Apple/spaceblack.jpg" },
+
+    { "id": "E001", "size": "promax", "color": "深紫色", "price": 38900, "storage": "128GB",  "picture": "http://127.0.0.1:5500/Apple/deeppurple.jpg" },
+    { "id": "E002", "size": "promax", "color": "金色", "price": 38900, "storage": "128GB",  "picture": "http://127.0.0.1:5500/Apple/gold.jpg" },
+    { "id": "E003", "size": "promax", "color": "銀色", "price": 38900, "storage": "128GB",  "picture": "http://127.0.0.1:5500/Apple/silver.jpg" },
+    { "id": "E004", "size": "promax", "color": "太空黑色", "price": 38900, "storage": "128GB",  "picture": "http://127.0.0.1:5500/Apple/spaceblack.jpg" },
+    
+    { "id": "F001", "size": "promax", "color": "深紫色", "price": 42400, "storage": "256GB",  "picture": "http://127.0.0.1:5500/Apple/deeppurple.jpg" },
+    { "id": "F002", "size": "promax", "color": "金色", "price": 42400, "storage": "256GB",  "picture": "http://127.0.0.1:5500/Apple/gold.jpg" },
+    { "id": "F003", "size": "promax", "color": "銀色", "price": 42400, "storage": "256GB",  "picture": "http://127.0.0.1:5500/Apple/silver.jpg" },
+    { "id": "F004", "size": "promax", "color": "太空黑色", "price": 42400, "storage": "256GB",  "picture": "http://127.0.0.1:5500/Apple/spaceblack.jpg" },
+
+
+    { "id": "G001", "size": "promax", "color": "深紫色", "price": 49400, "storage": "512GB",  "picture": "http://127.0.0.1:5500/Apple/deeppurple.jpg" },
+    { "id": "G002", "size": "promax", "color": "金色", "price": 49400, "storage": "512GB",  "picture": "http://127.0.0.1:5500/Apple/gold.jpg" },
+    { "id": "G003", "size": "promax", "color": "銀色", "price": 49400, "storage": "512GB",  "picture": "http://127.0.0.1:5500/Apple/silver.jpg" },
+    { "id": "G004", "size": "promax", "color": "太空黑色", "price": 49400, "storage": "512GB",  "picture": "http://127.0.0.1:5500/Apple/spaceblack.jpg" },
+
+    { "id": "H001", "size": "promax", "color": "深紫色", "price": 56400, "storage": "1TB",  "picture": "http://127.0.0.1:5500/Apple/deeppurple.jpg" },
+    { "id": "H002", "size": "promax", "color": "金色", "price": 56400, "storage": "1TB",  "picture": "http://127.0.0.1:5500/Apple/gold.jpg" },
+    { "id": "H002", "size": "promax", "color": "銀色", "price": 56400, "storage": "1TB",  "picture": "http://127.0.0.1:5500/Apple/silver.jpg" },
+    { "id": "H002", "size": "promax", "color": "太空黑色", "price": 56400, "storage": "1TB",  "picture": "http://127.0.0.1:5500/Apple/spaceblack.jpg" }
+
+   
+]

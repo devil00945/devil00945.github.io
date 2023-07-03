@@ -1,0 +1,211 @@
+body {
+    color: #6d6d6d;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+.selected {
+    border: 1px solid rgb(29, 29, 174) !important;
+    border-radius: 50px
+        /* outline: none; */
+}
+
+.applewatch {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.carousel-applewatch {
+    margin: auto;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    display: none;
+}
+
+
+
+.btn:hover {
+    background-color: inherit;
+    color: inherit;
+}
+
+.btn-outline-secondary {
+    --bs-btn-active-bg: inherit;
+    --bs-btn-active-color: inherit;
+
+}
+
+.titlephone {
+    padding-inline: 20px;
+    margin-block: 30px;
+}
+
+.titlephone p {
+    font-size: 14px;
+    margin-block: 25px;
+}
+
+.title {
+    display: none;
+}
+
+h2 {
+    margin: 30px;
+}
+
+.applewatchcolorname,
+.wristsize {
+    margin-inline: 30px;
+    margin-block: 10px;
+    font-size: 16px;
+}
+
+.applewatch-color,
+.applewatch-network,
+.applewatch-size,
+.applewatch-wristsize {
+    margin-bottom: 50px;
+    margin-inline: 20px;
+}
+
+.applewatch-size button,
+.applewatch-network button {
+    width: 95%;
+    height: 90px;
+    justify-content: center;
+    color: #6d6d6d;
+    border-radius: 15px;
+}
+
+.applewatch-color button {
+    width: 40px;
+    height: 40px;
+    margin: 30px 5px 0;
+    padding: 0;
+    border: 0;
+}
+
+.applewatch-color button img {
+    width: 30px;
+    height: 30px;
+
+}
+
+.applewatch-color p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.applewatch-network span,
+.applewatch-size span {
+    font-size: 12px;
+}
+
+
+.applewatch-size p,
+.applewatch-network p {
+    color: #000;
+    text-align: start;
+    margin-bottom: 0;
+}
+
+.applewatchtotalPrice {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 50px;
+}
+
+.applewatch-wristsize button {
+    align-items: center;
+    width: 40px;
+    height: 40px;
+}
+
+@media screen and (min-width:768px) {
+    h2 {
+        margin-inline: 80px;
+        margin-block: 30px;
+    }
+
+    .carousel-applewatch {
+        width: 550px;
+    }
+
+    .applewatch-pic {
+        height: 1px;
+        position: sticky;
+        top: 10%;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: #000;
+        border: 1px solid #000;
+        border-radius: 50%;
+    }
+
+    .titlephone {
+        display: none;
+    }
+
+    .title {
+        margin-inline: 80px;
+        margin-block: 30px;
+        display: inherit;
+    }
+
+    .title p {
+        font-size: 14px;
+        margin-block: 25px;
+    }
+
+    .applewatchcolorname,
+    .wristsize {
+        margin-inline: 80px;
+        margin-block: 10px;
+        font-size: 16px;
+    }
+
+    .applewatch-color,
+    .applewatch-network,
+    .applewatch-size,
+    .applewatch-wristsize {
+        margin-bottom: 100px;
+        margin-left: 80px;
+        margin-right: 50px;
+
+    }
+
+    .applewatch-size button,
+    .applewatch-network button {
+        width: 450px;
+        height: 90px;
+        justify-content: center;
+        text-decoration: none;
+        align-items: start;
+        color: #6d6d6d;
+        border-radius: 15px;
+        padding-inline: 20px;
+    }
+
+    .applewatch-color button {
+        width: 40px;
+        height: 40px;
+        margin: 30px 5px 0;
+        padding: 0;
+        border: 0;
+    }
+
+    .applewatch-wristsize button {
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        margin-right: 20px;
+        border: 0;
+    }
+}

@@ -1,0 +1,196 @@
+body {
+    color: #6d6d6d;
+}
+
+.selected {
+    border: 1px solid rgb(29, 29, 174) !important;
+    /* outline: none; */
+}
+
+.ipadair {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.carousel-ipadair {
+    margin: 20px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    display: none;
+}
+
+
+.ipadair-pic img {
+    width: 400px;
+}
+
+#storagepic {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.btn:hover {
+    background-color: inherit;
+    color: inherit;
+}
+
+.btn-outline-secondary {
+    --bs-btn-active-bg: inherit;
+    --bs-btn-active-color: inherit;
+
+}
+
+.titleipadair {
+    margin-inline: 30px;
+}
+
+.deskshow {
+    display: none;
+}
+
+.ipadair-color,
+.ipadair-storage,
+.ipadair-network {
+    margin-block: 30px;
+    margin-inline: 20px;
+    justify-content: space-between;
+}
+
+.ipadair-color img {
+    width: 30px;
+    height: 30px;
+}
+
+.ipadair-color button,
+.ipadair-storage button {
+    width: 170px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #6d6d6d;
+    border-radius: 15px;
+    margin-inline: 0;
+    margin-block: 5px;
+}
+
+.ipadair-network button,
+.ipadair-storage button:last-child {
+    width: 340px;
+    height: 90px;
+    justify-content: center;
+    text-decoration: none;
+    align-items: start;
+    color: #6d6d6d;
+    border-radius: 15px;
+    padding-inline: 20px;
+}
+
+.ipadair-network button:last-child {
+    width: 340px;
+    height: 130px;
+    justify-content: center;
+    text-decoration: none;
+    align-items: start;
+    color: #6d6d6d;
+    border-radius: 15px;
+    padding-inline: 20px;
+}
+
+.ipadair-color p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.ipadair-storage p {
+    color: #000;
+    font-size: 16px;
+    margin: 0;
+}
+
+.ipadair-storage span,
+.ipadair-network span {
+    font-size: 12px;
+}
+
+
+.ipadair-network p {
+    color: #000;
+    text-align: start;
+    margin-bottom: 0;
+}
+
+.ipadairtotalPrice {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 50px;
+}
+
+button {
+    width: 100px;
+    font-size: 18px;
+    margin-inline: 10px;
+}
+
+@media screen and (min-width:768px) {
+    .titleipadair {
+        display: none;
+    }
+
+    .carousel-ipadair {
+        margin: auto;
+        width: 900px;
+    }
+
+    .ipadair-pic {
+        height: 1px;
+        position: sticky;
+        top: 10%;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: #000;
+        border: 1px solid #000;
+        border-radius: 50%;
+    }
+
+    .deskshow {
+        display: inherit;
+    }
+
+    h2 {
+        margin-inline: 80px;
+        margin-block: 30px;
+    }
+
+    .ipadair-color,
+    .ipadair-storage,
+    .ipadair-network {
+        margin: 30px 110px 30px 50px;
+        justify-content: space-between;
+    }
+
+    .ipadair-color button,
+    .ipadair-storage button {
+        width: 170px;
+        height: 100px;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: #6d6d6d;
+        border-radius: 15px;
+    }
+    .ipadairtotalPrice {
+    text-align: center;
+    font-size: 24px;
+    margin-right: 80px;
+    margin-bottom: 50px;
+}
+    #storagepic{
+        display: none;
+    }
+}

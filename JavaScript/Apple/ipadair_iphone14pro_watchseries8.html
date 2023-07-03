@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap-5.3.0-dist/css/bootstrap.css">
+    <script src="./bootstrap-5.3.0-dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="./ipadair.css">
+    <link rel="stylesheet" href="./iphone14pro.css">
+    <link rel="stylesheet" href="./applewatch.css">
+    <title>Document</title>
+<style>
+    
+</style>
+</head>
+
+<body>
+    <nav>
+        <ul class="nav nav-tabs justify-content-center nav-justified position-sticky top-0 bg-body" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="iPadAir-tab" data-bs-toggle="tab" data-bs-target="#iPadAir-tab-pane"
+                    type="button" role="tab" aria-controls="iPadAir-tab-pane" aria-selected="true">iPad Air</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="iPhone14Pro-tab" data-bs-toggle="tab"
+                    data-bs-target="#iPhone14Pro-tab-pane" type="button" role="tab" aria-controls="iPhone14Pro-tab-pane"
+                    aria-selected="false">iPhone 14 Pro</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="AppleWatchSeries8-tab" data-bs-toggle="tab"
+                    data-bs-target="#AppleWatchSeries8-tab-pane" type="button" role="tab"
+                    aria-controls="AppleWatchSeries8-tab-pane" aria-selected="false">Apple Watch Series 8</button>
+            </li>
+
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="iPadAir-tab-pane" role="tabpanel" aria-labelledby="iPadAir-tab"
+                tabindex="0">
+                <div class="ipadair d-flex">
+                    <div class="ipadair-pic col-12 col-md-8 ">
+                        <h1 class="titleipadair fs-4">外觀。 挑選喜愛的顏色。</h1>
+                        <div id="carouselExampleIndicators" class="carousel slide carousel-ipadair">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                    class="active bg-black mx-2" aria-current="true" aria-label="Slide 1"
+                                    style="width: 8px;height: 8px;border-radius: 50%;"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                    class=" bg-black mx-2" aria-label="Slide 2"
+                                    style="width: 8px;height: 8px;border-radius: 50%;"></button>
+                            </div>
+                            <div class="carousel-inner rounded-3 ">
+                                <div class="carousel-item active">
+                                    <img src="./ipadair/allcolor.jpg" class="d-block w-100" id="ipadairpic">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./ipadair/allcolor2.jpg" class="d-block w-100 " id="ipadairpic2">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ipadairformat col-12 col-md-4">
+                        <div class="ipadair-color d-flex flex-wrap">
+                            <h1 class="deskshow fs-4">外觀。 挑選喜愛的顏色。</h1>
+                            <button id="spacegray" class="optioncolor border btn btn-outline-secondary d-flex flex-column"
+                                ipadair-category="color" ipadair-name="太空灰色">
+                                <img src="./ipadair/_spacegray.jpg">
+                                <p>太空灰色</p>
+                            </button>
+                            <button id="blue" class="optioncolor border  btn btn-outline-secondary d-flex flex-column"
+                                ipadair-category="color" ipadair-name="藍色">
+                                <img src="./ipadair/_blue.jpg">
+                                <p>藍色</p>
+                            </button>
+                            <button id="pink" class="optioncolor border  btn btn-outline-secondary d-flex flex-column"
+                                ipadair-category="color" ipadair-name="粉紅色"><img src="./ipadair/_pink.jpg">
+                                <p>粉紅色</p>
+                            </button>
+            
+                            <button id="purple" class="optioncolor border  btn btn-outline-secondary d-flex flex-column"
+                                ipadair-category="color" ipadair-name="紫色"><img src="./ipadair/_purple.jpg">
+                                <p>紫色</p>
+                            </button>
+                            <button id="starlight" class="optioncolor border  btn btn-outline-secondary d-flex flex-column"
+                                ipadair-category="color" ipadair-name="星光色"><img src="./ipadair/_starlight.jpg">
+                                <p>星光色</p>
+                            </button>
+                        </div>
+                        <div class="ipadair-storage d-flex flex-wrap mb-5">
+                            <h1 class="fs-4 text-start mb-3">儲存裝置。 選擇需要的儲存空間大小。</h1>
+                            <img src="" id="storagepic">
+                            <button id="64" class="optionstorage border  btn btn-outline-secondary d-flex flex-column"
+                                ipadair-category="storage" ipadair-name="64GB">
+                                <p>64GB</p><span class="py-1">NT$19,900 起</span>
+                            </button>
+                            <button id="256" class="optionstorage border  btn btn-outline-secondary d-flex flex-column"
+                                ipadair-category="storage" ipadair-name="256GB">
+                                <p>256GB</p><span class="py-1">NT$24,900 起</span>
+                            </button>
+                            <button class=" border btn btn-outline-secondary bg-secondary-subtle d-flex flex-column m-2 ">
+                                <p class="px-1 pt-3">不確定需要多少儲存空間？
+                                </p><span class="p-1 pb-3 text-start">你的 iPad Air 儲存空間愈大， 你就有愈多空間儲存數位內容，滿足今日所需，也滿足未來需求。</span>
+                            </button>
+                        </div>
+                        <div class="ipadair-network">
+                            <h1 class="fs-4  mb-3">連線能力。 選擇連線方式。</h1>
+                            <button id="WiFi" class="optionnetwork border btn btn-outline-secondary d-flex flex-column mx-2 mb-3"
+                                ipadair-category="network" ipadair-name="Wi-Fi">
+                                <p>Wi-Fi</p><span class="py-1 text-start">每部 iPad 都可連接到 Wi-Fi 網路，使你能保持連線。 </span>
+                            </button>
+                            <button id="Cellular"
+                                class="optionnetwork border btn btn-outline-secondary d-flex flex-column mx-2 mb-3"
+                                ipadair-category="network" ipadair-name="Cellular">
+                                <p>Cellular</p><span class="py-1 text-start">Wi-Fi + 行動網路機型讓你在無法使用 Wi-Fi 時也能進行連線。</span>
+                            </button>
+                            <button class=" border  btn btn-outline-secondary bg-secondary-subtle d-flex flex-column m-2">
+                                <p class="px-1 pt-3">想要進一步了解 Wi-Fi + 行動網路機型？
+            
+                                </p><span class="p-1 pb-3 text-start">如果現場沒有可供使用的 Wi-Fi，Wi-Fi + 行動網路機型可讓你透過行動網路數據方案保持連線。 <br>購買
+                                    Wi-Fi + 行動網路機型後，需要設定行動網路連線。</span>
+                            </button>
+                        </div>
+                        <div class="ipadairtotalPrice">NT$</div>
+                    </div>
+                </div>
+                <script src="./ipadair.js"></script>
+
+
+            </div>
+            <div class="tab-pane fade" id="iPhone14Pro-tab-pane" role="tabpanel" aria-labelledby="iPhone14Pro-tab"
+                tabindex="0">
+                <div class="iphone d-flex">
+                    <div class="iphone-pic col-12 col-md-8">
+                        <h1 class="titleiphone fs-4 ms-4">機型。 哪一款最適合你？</h1>
+                        <div id="carouselExampleIndicators" class="carousel slide carousel-iphone-deskshow">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                    class="active bg-black mx-2" aria-current="true" aria-label="Slide 1"
+                                    style="width: 8px;height: 8px;border-radius: 50%;"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                    class=" bg-black mx-2" aria-label="Slide 2"
+                                    style="width: 8px;height: 8px;border-radius: 50%;"></button>
+                            </div>
+                            <div class="carousel-inner rounded-3 ">
+                                <div class="carousel-item active">
+                                    <img src="./iphone14pro/iphone.jpg" class="d-block w-100" id="iphonepic">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./iphone14pro/deeppurple2.jpg" class="d-block w-100 " id="iphonepic2">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="iphoneformat col-12 col-md-4">
+                        <h1 class="deskshow fs-4 ms-md-5">機型。 哪一款最適合你？</h1>
+                        <div class="iphone-size">
+            
+                            <button id="pro"
+                                class="optionsize border btn btn-outline-secondary d-flex flex-row justify-content-between align-items-center mx-2 mb-3"
+                                iphone-category="size" iphone-name="pro">
+                                <div class=" text-start">
+                                    <p>iPhone 14 Pro</p><span class="py-1 ">6.1吋顯示器 </span>
+                                </div>
+                                <div>NT$34,900 起</div>
+                            </button>
+                            <button id="promax"
+                                class="optionsize border btn btn-outline-secondary d-flex flex-row justify-content-between align-items-center mx-2 mb-3"
+                                iphone-category="size" iphone-name="promax">
+                                <div class=" text-start">
+                                    <p>iPhone 14 Pro Max</p><span class="py-1">6.7吋顯示器 </span>
+                                </div>
+                                <div>NT$38,900 起</div>
+                            </button>
+                            <button class=" border  btn btn-outline-secondary bg-secondary-subtle d-flex flex-column m-2">
+                                <p class="px-1 pt-3">需要選購機型的協助？
+                                </p><span class="p-1 pb-3 text-start">探索螢幕尺寸與電池續航力的差異。</span>
+                            </button>
+                        </div>
+                        <h1 class="fs-4 ms-4 ms-md-5">外觀。 挑選你喜愛的外觀。</h1>
+                        <div id="carouselExampleIndicators" class="carousel slide carousel-iphone">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                    class="active bg-black mx-2" aria-current="true" aria-label="Slide 1"
+                                    style="width: 8px;height: 8px;border-radius: 50%;"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                    class=" bg-black mx-2" aria-label="Slide 2"
+                                    style="width: 8px;height: 8px;border-radius: 50%;"></button>
+                            </div>
+                            <div class="carousel-inner rounded-3 ">
+                                <div class="carousel-item active">
+                                    <img src="./iphone14pro/iphone.jpg" class="d-block w-100" id="iphonepic">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./iphone14pro/deeppurple2.jpg" class="d-block w-100 " id="iphonepic2">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+            
+                        <div class="iphonecolorname">顏色 - <span id="iphonecolorname"></span></div>
+                        <div class="iphone-color d-flex flex-wrap">
+                            <button id="deeppurple" class="optioncolor btn rounded-circle" iphone-category="color"
+                                iphone-name="深紫色">
+                                <img src="./iphone14pro/_iphone14prodeeppurple.jpg">
+                                <span id="深紫色" class="d-none">深紫色</span>
+                            </button>
+                            <button id="gold" class="optioncolor btn" iphone-category="color" iphone-name="金色">
+                                <img src="./iphone14pro/_iphone14progold.jpg">
+            
+                            </button>
+                            <button id="silver" class="optioncolor btn" iphone-category="color" iphone-name="銀色"><img
+                                    src="./iphone14pro/_iphone14prosilver.jpg">
+            
+                            </button>
+            
+                            <button id="spaceblack" class="optioncolor btn" iphone-category="color" iphone-name="太空黑色"><img
+                                    src="./iphone14pro/_iphone14prospaceblack.jpg">
+            
+                            </button>
+            
+                        </div>
+                        <h1 class="fs-4 text-start ms-4 ms-md-5">儲存裝置。你需要多少儲存空間？</h1>
+                        <div class="iphone-storage d-flex flex-wrap mb-5">
+            
+                            <button id="128" class="optionstorage border  btn btn-outline-secondary d-flex flex-column m-2"
+                                iphone-category="storage" iphone-name="128GB">
+                                <p>128GB</p>
+                            </button>
+                            <button id="256" class="optionstorage border btn btn-outline-secondary d-flex flex-column m-2"
+                                iphone-category="storage" iphone-name="256GB">
+                                <p>256GB</p>
+                            </button>
+                            <button id="512" class="optionstorage border  btn btn-outline-secondary d-flex flex-column m-2"
+                                iphone-category="storage" iphone-name="512GB">
+                                <p>512GB</p>
+                            </button>
+                            <button id="1024" class="optionstorage border  btn btn-outline-secondary d-flex flex-column m-2"
+                                iphone-category="storage" iphone-name="1TB">
+                                <p>1TB</p>
+                            </button>
+                            <button class=" border  btn btn-outline-secondary bg-secondary-subtle d-flex flex-column m-2 ">
+                                <p class="px-1 pt-3">不確定需要多少儲存空間？
+                                </p><span class="p-1 pb-3 text-start">讓我們幫你更清楚了解你所需的空間。</span>
+                            </button>
+                        </div>
+            
+                        <div class="iphonetotalPrice">NT$</div>
+                    </div>
+                </div>
+               <script src="./iphone14pro.js"></script>
+            </div>
+            <div class="tab-pane fade" id="AppleWatchSeries8-tab-pane" role="tabpanel"
+                aria-labelledby="AppleWatchSeries8-tab" tabindex="0">
+                <div class="applewatch d-flex">
+
+                    <div class="applewatch-pic col-12 col-md-7">
+                        <div class="titlephone">
+                            <p>Apple Watch</p>
+                            <h1 class="fs-3">星光色鋁金屬錶殼；編織單圈錶環</h1>
+                            <p>鋁金屬錶殼身形輕盈，採用 100% 再生航太等級合金材質製成。
+                                <br>
+                                <br>
+                                編織單圈錶環採用再生紗繩與矽膠線編織而成，無錶扣無扣環的延展性設計，配戴超舒適。
+                            </p>
+                        </div>
+                        <div id="carouselExampleIndicators" class="carousel slide carousel-applewatch">
+            
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                    class="active bg-black mx-2" aria-current="true" aria-label="Slide 1"
+                                    style="width: 8px;height: 8px;border-radius: 50%;"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                    class=" bg-black mx-2" aria-label="Slide 2"
+                                    style="width: 8px;height: 8px;border-radius: 50%;"></button>
+                            </div>
+                            <div class="carousel-inner rounded-3 ">
+                                <div class="carousel-item active">
+                                    <img src="./applewatch/special.jpg" class="d-block w-100" id="applewatchpic">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="./applewatch/special2.jpg" class="d-block w-100 " id="applewatchpic2">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="applewatchformat col-12 col-md-5">
+                        <div class="title">
+                            <p>Apple Watch</p>
+                            <h1 class="fs-3" style="margin-left: 0;">星光色鋁金屬錶殼；編織單圈錶環</h1>
+                            <p>鋁金屬錶殼身形輕盈，採用 100% 再生航太等級合金材質製成。
+                                <br>
+                                <br>
+                                編織單圈錶環採用再生紗繩與矽膠線編織而成，無錶扣無扣環的延展性設計，配戴超舒適。
+                            </p>
+                        </div>
+                        <h2 class="fs-5 fw-bold">錶帶顏色</h2>
+                        <div class="applewatchcolorname">顏色 - <span id="applewatchcolorname"></span></div>
+                        <div class="applewatch-color d-flex flex-wrap">
+            
+                            <button id="olive" class="optioncolor btn rounded-circle" applewatch-category="color"
+                                applewatch-name="橄欖色">
+                                <img src="./applewatch/_olive.jpg">
+                            </button>
+                            <button id="orange" class="optioncolor btn" applewatch-category="color" applewatch-name="鮮橙色">
+                                <img src="./applewatch/_orange.jpg">
+                            </button>
+                            <button id="mistpurple" class="optioncolor btn" applewatch-category="color" applewatch-name="霧紫色"><img
+                                    src="./applewatch/_mistpurple.jpg">
+                            </button>
+            
+                            <button id="midnight" class="optioncolor btn" applewatch-category="color" applewatch-name="午夜色"><img
+                                    src="./applewatch/_midnight.jpg">
+                            </button>
+                            <button id="blackunity" class="optioncolor btn" applewatch-category="color"
+                                applewatch-name="Black Unity"><img src="./applewatch/_blackunity.jpg">
+                            </button>
+                            <button id="special" class="optioncolor btn" applewatch-category="color" applewatch-name="驕傲特別版"><img
+                                    src="./applewatch/_special.jpg">
+                            </button>
+                            <button id="red" class="optioncolor btn" applewatch-category="color" applewatch-name="紅色">
+                                <img src="./applewatch/_red.jpg">
+                            </button><img src="./applewatch/productred.svg" style="width: 50px;height: 50px;margin-top: 30px;">
+            
+                        </div>
+                        <h2 class="fs-5 fw-bold">錶殼尺寸</h2>
+                        <div class="applewatch-size">
+                            <button id="pro"
+                                class="optionsize border btn btn-outline-secondary d-flex flex-row justify-content-between align-items-center mx-2 mb-3"
+                                applewatch-category="size" applewatch-name="41mm">
+                                <div class=" text-start">
+                                    <p>41 公釐</p><span class="py-1">適合手腕圍 130–200 公釐。</span>
+                                </div>
+                                <div>NT$14,400 起</div>
+                            </button>
+                            <button id="promax"
+                                class="optionsize border btn btn-outline-secondary d-flex flex-row justify-content-between align-items-center mx-2 mb-3"
+                                applewatch-category="size" applewatch-name="45mm">
+                                <div class=" text-start">
+                                    <p>45 公釐</p><span class="py-1">適合手腕圍 140–220 公釐。</span>
+                                </div>
+                                <div>NT$15,400 起</div>
+                            </button>
+            
+                        </div>
+                        <h2 class="fs-5 fw-bold">連線能力</h2>
+                        <div class="applewatch-network">
+            
+                            <button id="GPS" class="optionnetwork border btn btn-outline-secondary d-flex flex-column m-2 mb-3"
+                                applewatch-category="network" applewatch-name="GPS">
+                                <p>GPS</p><span class="text-start">可藉由你的 iPhone 在附近範圍內<br>
+                                    撥接電話和發簡訊。</span>
+                            </button>
+                            <button id="mobile-network"
+                                class="optionnetwork border btn btn-outline-secondary d-flex flex-column m-2 mb-3"
+                                applewatch-category="network" applewatch-name="mobile-network">
+                                <p>GPS + 行動網路</p><span class="text-start">只需 Apple Watch 就能打電話和<br>
+                                    發簡訊。適用於「家人共享設定」功能。</span>
+                            </button>
+            
+                        </div>
+                        <h2 class="fs-5 fw-bold">錶帶尺寸</h2>
+                        <p class="wristsize">為了提供超舒適的貼合配戴，此款錶帶備有幾個種尺寸可供選擇。請參照我們的尺寸指南，找出適合你的錶帶尺寸。 <br>然後選擇你的尺寸：</p>
+                        <div class="applewatch-wristsize d-flex flex-wrap mb-5">
+            
+                            <button id="1"
+                                class="optionwristsize border rounded-circle btn btn-outline-secondary m-2 d-flex flex-column"
+                                applewatch-category="wristsize">
+                                <p>1</p>
+                            </button>
+                            <button id="2"
+                                class="optionwristsize border rounded-circle btn btn-outline-secondary m-2 d-flex flex-column"
+                                applewatch-category="wristsize">
+                                <p>2</p>
+                            </button>
+                            <button id="3"
+                                class="optionwristsize border rounded-circle btn btn-outline-secondary m-2 d-flex flex-column"
+                                applewatch-category="wristsize">
+                                <p>3</p>
+                            </button>
+                            <button id="4"
+                                class="optionwristsize border rounded-circle btn btn-outline-secondary m-2 d-flex flex-column"
+                                applewatch-category="wristsize">
+                                <p>4</p>
+                            </button>
+                            <button id="5"
+                                class="optionwristsize border rounded-circle btn btn-outline-secondary m-2 d-flex flex-column"
+                                applewatch-category="wristsize">
+                                <p>5</p>
+                            </button>
+                            <button id="6"
+                                class="optionwristsize border rounded-circle btn btn-outline-secondary m-2 d-flex flex-column"
+                                applewatch-category="wristsize">
+                                <p>6</p>
+                            </button>
+                            <button id="7"
+                                class="optionwristsize border rounded-circle btn btn-outline-secondary m-2 d-flex flex-column"
+                                applewatch-category="wristsize">
+                                <p>7</p>
+                            </button>
+                            <button id="8"
+                                class="optionwristsize border rounded-circle btn btn-outline-secondary m-2 d-flex flex-column"
+                                applewatch-category="wristsize">
+                                <p>8</p>
+                            </button>
+                            <button id="9"
+                                class="optionwristsize border rounded-circle btn btn-outline-secondary m-2 d-flex flex-column"
+                                applewatch-category="wristsize">
+                                <p>9</p>
+                            </button>
+                            <button id="10"
+                                class="optionwristsize border rounded-circle btn btn-outline-secondary m-2 d-flex flex-column"
+                                applewatch-category="wristsize">
+                                <p>10</p>
+                            </button>
+                            <button id="11"
+                                class="optionwristsize border rounded-circle btn btn-outline-secondary m-2 d-flex flex-column"
+                                applewatch-category="wristsize">
+                                <p>11</p>
+                            </button>
+                            <button id="12"
+                                class="optionwristsize border rounded-circle btn btn-outline-secondary m-2 d-flex flex-column"
+                                applewatch-category="wristsize">
+                                <p>12</p>
+                            </button>       
+            
+            
+                        </div>
+            
+                        <div class="applewatchtotalPrice">NT$</div>
+                    </div>
+                </div>
+            <script src="./applewatch.js"></script>            
+
+            </div>
+
+        </div>
+    </nav>
+
+<script>
+    window.onload = function () {
+    requestIpadJson(ipadairurl)
+    requestIphoneJson(iphoneurl)
+    requestWatchJson(applewatchurl)
+}
+</script>
+
+</body>
+
+</html>

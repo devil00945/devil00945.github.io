@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <title>calendar</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .modal {
+      --bs-modal-width: 300px;
+    }
+.modal-content{
+  background-color:rgb(154, 199, 214) ;
+}
+.btn-primary{
+  background-color: rgb(35, 113, 139);
+  border-color:rgb(35, 113, 139);
+}
+    .input-group-text {
+      padding-block: 3px;
+    }
+
+    select {
+      width: 175px;
+    }
+
+    .calendar {
+      background-color: rgb(103, 116, 121, 0.1);
+      ;
+      width: 800px;
+      height: 100vh;
+      margin-inline: auto;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .calendar_title {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      margin-inline: auto;
+    }
+
+    #calendar-year {
+      text-align: center;
+      margin: 0;
+    }
+
+    .month {
+      width: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    h1,
+    h5 {
+      width: 200px;
+      text-align: center;
+      margin: 0;
+      color: rgb(35, 113, 139);
+    }
+
+    .fa-solid {
+      color: rgb(102, 176, 201);
+      display: inline-block;
+    }
+
+    #today {
+      width: 100px;
+      font-weight: 600;
+      text-align: center;
+      margin: 0;
+      color: rgb(35, 113, 139);
+      font-size: 18px;
+      margin-top: 10px;
+      border: 1px dotted rgb(77, 76, 76);
+      border-radius: 30px;
+      box-sizing: border-box;
+    }
+
+    #today:hover {
+      cursor: pointer;
+      color: rgb(61, 53, 215);
+      border: 1px solid rgb(61, 53, 215);
+    }
+
+    .calendar-table {
+      width: 100%;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      font-size: 14px;
+      /* margin-top: 10px; */
+      margin-inline: auto;
+      border-collapse: unset;
+    }
+
+    .calendar-table th {
+      color: rgb(87, 84, 84);
+      height: 40px;
+      text-align: center;
+    }
+
+    .calendar-table td {
+      width: calc(100%/7);
+      height: 75px;
+      vertical-align: top;
+      border: 1px solid #ccc;
+      padding: 5px;
+      border-radius: 10px;
+      box-sizing: border-box;
+      background-color: rgba(41, 117, 142, 0.2);
+    }
+
+    .lightgrey {
+      color: #918f8f;
+
+    }
+
+    .darkgrey {
+      color: #353535;
+
+    }
+
+    .calendar-table td.blue {
+      background-color: rgb(151, 208, 227);
+      color: rgb(103, 18, 18);
+    }
+
+    #days td:hover {
+      border: 1px solid rgb(61, 53, 215);
+      cursor: pointer;
+
+    }
+
+    span {
+      color: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="calendar">
+    <div class="calendar_title">
+      <h5 id="calendar-year">Year</h5>
+      <div class="month">
+        <a href="" id="pre"><i class="fa-solid fa-circle-chevron-left fa-2x"></i></a>
+        <h1 id="calendar-month">Month</h1>
+        <a href="" id="next"><i class="fa-solid fa-circle-chevron-right fa-2x"></i></a>
+
+      </div>
+      <p id="today">Today</p>
+    </div>
+    <div class="calendar-body">
+      <table class="lightgrey calendar-table">
+        <thead>
+          <tr>
+            <th>SUN</th>
+            <th>MON</th>
+            <th>TUE</th>
+            <th>WED</th>
+            <th>THU</th>
+            <th>FRI</th>
+            <th>SAT</th>
+          </tr>
+        </thead>
+        <div class="darkgrey calendar-list">
+          <tbody id="days"></tbody>
+        </div>
+      </table>
+      <!-- 新增行程 modal -->
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary d-none" data-bs-toggle="modal"
+        data-bs-target="#addModal">新增行程</button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="addModalLabel">新增行程</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- yyyy-mm-dd -->
+              <div class="input-group mb-3">
+                <span class="input-group-text">日期</span>
+                <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="add-date"
+                  id="add-date">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text">行程時間</span>
+                <select id="add-time">
+                  <option value=""></option>
+                </select>
+
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text">行程內容</span>
+                <textarea class="form-control" aria-label="With textarea" id="add-content"></textarea>
+
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text">自訂行程顏色</span>
+                <input type="color" class="form-control" placeholder="" aria-label="" aria-describedby="add-color"
+                  id="add-color">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="add-event">新增</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#editModal">
+        編輯行程
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="editModalLabel">編輯行程</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- yyyy-mm-dd -->
+              <div class="input-group mb-3">
+                <span class="input-group-text">日期</span>
+                <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="edit-date"
+                  id="edit-date">
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text">行程時間</span>
+                <select id="edit-time">
+                  <option value=""></option>
+                </select>
+              </div>
+              <!-- 標題 -->
+              <div class="input-group mb-3">
+                <span class="input-group-text">行程內容</span>
+                <textarea class="form-control" aria-label="With textarea" id="edit-content"></textarea>
+
+              </div>
+              <!-- 內容 -->
+              <div class="input-group mb-3">
+                <span class="input-group-text">自訂行程顏色</span>
+                <input type="color" class="form-control" placeholder="" aria-label="" aria-describedby="add-color"
+                  id="edit-color">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="edit-event">修改</button>
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="edit-delete">刪除</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+    </script>
+  <script>
+    const myModalAdd = new bootstrap.Modal("#addModal", {
+      keyboard: false
+    })
+
+    const myModalEdit = new bootstrap.Modal("#editModal", {
+      keyboard: false
+    })
+    const month_name = ["January", "Febrary", "March", "April", "May", "June", "July", "Auguest", "September", "October", "November", "December"];
+    let tbody = document.getElementById("days");
+    const pre = document.getElementById("pre");
+    const next = document.getElementById("next");
+    const month = document.getElementById("calendar-month");
+    const year = document.getElementById("calendar-year");
+    const today = document.getElementById("today");
+    let _date = new Date();
+    let now_year = _date.getFullYear();
+    let now_month = _date.getMonth();
+    let now_day = _date.getDate();
+
+    const add_date = document.getElementById("add-date")
+    const addTimeSelect = document.getElementById("add-time")
+    const add_content = document.getElementById("add-content")
+    const add_color = document.getElementById("add-color")
+    const addEvent = document.getElementById("add-event")
+
+    const edit_date = document.getElementById("edit-date")
+    const editTimeSelect = document.getElementById("edit-time")
+    const edit_content = document.getElementById("edit-content")
+    const edit_color = document.getElementById("edit-color")
+    const editEvent = document.getElementById("edit-event")
+    const editDelete = document.getElementById("edit-delete")
+
+    let count = 0
+
+    function dayStart(month, year) {
+      let firstDate = new Date(year, month, 1)
+      return firstDate.getDay()
+    }
+
+    function daysMonth(month, year) {
+      let daysOfMonth = new Date(year, month + 1, 0)
+      return daysOfMonth.getDate()
+
+    }
+
+    window.onload = function () {
+      addTimeSelect.value = ""
+      add_content.value = ""
+      add_color.value = ""
+      refreshDate()
+      generateTimeOptions()
+    }
+
+    function refreshDate() {
+      tbody.innerText = ""
+      let totalDays = daysMonth(now_month, now_year) //取得該月總天數
+      let firstDay = dayStart(now_month, now_year) //取得該月第一天是星期幾
+
+      let numRows = Math.ceil((totalDays + firstDay) / 7) //計算需要的行數
+      let dayCount = 1 //計數器
+      for (let i = 0; i < numRows; i++) {
+        let tr = document.createElement("tr")
+
+        for (let j = 0; j < 7; j++) {
+
+          let td = document.createElement("td")
+
+          if (i === 0 && j < firstDay) {
+
+            td.innerText = ""
+
+            tr.append(td)
+          }
+          else if (dayCount > totalDays) {
+
+            td.innerText = ""
+
+            tr.append(td)
+          }
+          else {
+            if ((dayCount < now_day && now_year == _date.getFullYear() && now_month == _date.getMonth()) || now_year < _date.getFullYear() || (now_year == _date.getFullYear() && now_month < _date.getMonth())) {
+              td.classList.add("class", "lightgrey")
+            }
+            else if (dayCount == now_day && now_year == _date.getFullYear() && now_month == _date.getMonth()) {
+              td.classList.add("class", "blue") 
+            }
+            else {
+              td.classList.add("class", "darkgrey") 
+            }
+
+
+            td.innerText = dayCount  
+
+            // 新增事件區域
+            const eventDiv = document.createElement("div")
+            eventDiv.classList.add("event-container")
+            const dateKey = `${now_year}-${now_month + 1}-${dayCount}`
+            const eventData = getLocalStorage(dateKey)
+            if (eventData && eventData.length > 0) {
+              // 將事件資料按照時間進行排序
+              const sortedEventData = eventData.sort((a, b) => {
+                return a.time.localeCompare(b.time)
+              })
+
+              sortedEventData.forEach((event, index) => {
+                const eventItem = document.createElement("div")
+                eventItem.classList.add("event-item")
+                eventItem.style.backgroundColor = event.color
+                eventItem.innerHTML = `<span class="event-time">${event.time}</span> <span class="event-content">${event.content}</span>`
+                eventDiv.appendChild(eventItem)
+                eventItem.addEventListener("click", itemClick.bind(null, now_year, now_month, dayCount, event.time, event.content, event.color, index))
+              })
+            }
+            td.appendChild(eventDiv)
+
+
+            td.addEventListener("click", tdClick.bind(null, now_year, now_month, dayCount))
+            dayCount++
+          }
+
+          tr.append(td)
+        }
+        tbody.append(tr)
+      }
+      month.innerHTML = month_name[now_month]
+      year.innerHTML = now_year
+    }
+
+
+    pre.addEventListener("click", function (i) {
+      i.preventDefault()
+      now_month--
+      if (now_month < 0) {
+        now_year--
+        now_month = 11
+      }
+      refreshDate()
+    })
+
+    next.addEventListener("click", function (i) {
+      i.preventDefault()
+      now_month++
+      if (now_month > 11) {
+        now_year++
+        now_month = 0
+      }
+      refreshDate()
+    })
+
+    today.addEventListener("click", function () {
+      let current_date = new Date()
+      now_year = current_date.getFullYear()
+      now_month = current_date.getMonth()
+      refreshDate()
+
+    })
+
+    addEvent.addEventListener("click", () => {
+      let dataArray = []
+      let date = add_date.value
+      let event = {
+        time: addTimeSelect.value,
+        content: add_content.value,
+        color: add_color.value
+      }
+
+      let data = getLocalStorage(date)
+      console.log(data)
+
+      if (data == null) {
+        dataArray.push(event)
+      }
+      else {
+        dataArray = data
+        dataArray.push(event)
+      }
+
+      setLocalStorage(date, dataArray)
+
+
+      myModalAdd.hide()
+      addTimeSelect.value = ""
+      add_content.value = ""
+      add_color.value = "#rrggbb"
+      refreshDate()
+    })
+
+    editEvent.addEventListener("click", () => {
+      // 獲取編輯行程的相關值
+      let editedDataArray = []
+      let enentIndex = count
+      let editDate = edit_date.value;
+      let editevent = {
+        time: editTimeSelect.value,
+        content: edit_content.value,
+        color: edit_color.value
+      }
+
+      // 更新日曆上的行程顯示
+
+      let eventItem = document.querySelector(".event-item")
+      let eventContent = document.querySelector(".event-content")
+      let eventTime = document.querySelector(".event-time")
+      if (eventContent && eventTime) {
+        eventContent.innerText = edit_content.value;
+        eventTime.innerText = editTimeSelect.value;
+        eventItem.style.backgroundColor = edit_color.value;
+      }
+
+      // 更新 Local Storage 中的行程資料
+
+      editData = localStorage.getItem(editDate)
+
+      if (editData == null) {
+        editData = [editevent]
+
+      }
+      else {
+        editData = JSON.parse(editData)
+        editData[enentIndex] = editevent
+      }
+
+      setLocalStorage(editDate, editData);
+
+
+      // 關閉編輯行程的 Modal
+      myModalEdit.hide();
+      refreshDate()
+    })
+
+    editDelete.addEventListener("click", () => {
+      let deleteIndex = count
+      let deleteDate = edit_date.value
+      deleteData = getLocalStorage(deleteDate)
+      deleteData.splice(deleteIndex, 1)
+      // localStorage.removeItem(deleteData[deleteIndex])
+
+      // 更新 Local Storage 中的行程資料
+      setLocalStorage(deleteDate, deleteData);
+
+
+      // 關閉編輯行程的 Modal
+      myModalEdit.hide()
+      refreshDate()
+    })
+
+    function tdClick(year, month, day) {
+      add_date.value = `${year}-${month + 1}-${day}`
+      myModalAdd.show()
+    }
+
+    function itemClick(year, month, day, time, content, color, index, event) {
+      event.stopPropagation()
+      count = index
+      edit_date.value = `${year}-${month + 1}-${day}`
+      editTimeSelect.value = time
+      edit_content.value = content
+      edit_color.value = color
+      myModalEdit.show()
+
+    }
+
+    function getLocalStorage(key) {
+      let data = JSON.parse(localStorage.getItem(key))
+      return data
+    }
+
+    function setLocalStorage(key, value) {
+      localStorage.setItem(key, JSON.stringify(value))
+    }
+
+
+
+    //生成時間選項
+    function generateTimeOptions() {
+      const startTime = new Date();
+      startTime.setHours(0, 0, 0, 0); // 設定起始時間為當天的 00:00:00
+      const endTime = new Date();
+      endTime.setHours(23, 30, 0, 0); // 設定結束時間為當天的 23:30:00
+      const timeInterval = 30; // 時間間距為30分鐘
+
+      while (startTime.getTime() <= endTime.getTime()) {
+        const hours = startTime.getHours().toString().padStart(2, "0")
+        const minutes = startTime.getMinutes().toString().padStart(2, "0")
+        const timeOption = document.createElement("option")
+        timeOption.value = hours + ":" + minutes
+        timeOption.textContent = hours + ":" + minutes
+        addTimeSelect.appendChild(timeOption.cloneNode(true))
+        editTimeSelect.appendChild(timeOption)
+        startTime.setMinutes(startTime.getMinutes() + timeInterval)
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>

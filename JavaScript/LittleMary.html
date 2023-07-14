@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+            background-color: rgb(224, 249, 255);
+        }
+        i {
+            font-size: 40px;
+        }
+
+        [box-id] {
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            transition: 0.3s;
+        }
+
+        [box-id].active {
+            background-color:rgb(245, 177, 154, 0.5);
+            border: 2px solid rgb(255, 183, 0);
+            box-shadow: 0 0 5px rgb(255, 183, 0);
+            transition: 0s;
+        }
+
+        #msg {
+            font-size: 36px;
+            text-align: center;
+            color:rgb(139, 0, 109);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div box-id="1" class="col-1"></div>
+            <div box-id="2" class="col-1"></div>
+            <div box-id="3" class="col-1"></div>
+            <div box-id="4" class="col-1"></div>
+            <div box-id="5" class="col-1"></div>
+            <div box-id="6" class="col-1"></div>
+            <div box-id="7" class="col-1"></div>
+            <div box-id="8" class="col-1"></div>
+            <div box-id="9" class="col-1"></div>
+            <div box-id="10" class="col-1"></div>
+            <div box-id="11" class="col-1"></div>
+            <div box-id="12" class="col-1"></div>
+        </div>
+        <div class="row">
+            <div box-id="32" class="col-1"></div>
+            <div class="col-10"></div>
+            <div box-id="13" class="col-1"></div>
+        </div>
+        <div class="row">
+            <div box-id="31" class="col-1"></div>
+            <div class="col-10"></div>
+            <div box-id="14" class="col-1"></div>
+        </div>
+        <div class="row">
+            <div box-id="30" class="col-1"></div>
+            <div class="col-10" id="msg"></div>
+            <div box-id="15" class="col-1"></div>
+        </div>
+        <div class="row">
+            <div box-id="29" class="col-1"></div>
+            <div class="col-10"></div>
+            <div box-id="17" class="col-1"></div>
+        </div>
+        <div class="row">
+            <div box-id="28" class="col-1"></div>
+            <div box-id="27" class="col-1"></div>
+            <div box-id="26" class="col-1"></div>
+            <div box-id="25" class="col-1"></div>
+            <div box-id="24" class="col-1"></div>
+            <div box-id="23" class="col-1"></div>
+            <div box-id="22" class="col-1"></div>
+            <div box-id="21" class="col-1"></div>
+            <div box-id="20" class="col-1"></div>
+            <div box-id="19" class="col-1"></div>
+            <div box-id="18" class="col-1"></div>
+            <div box-id="17" class="col-1"></div>
+        </div>
+    </div>
+    <div class="row">
+        <button type="button" class="btn btn-outline-danger col-1 my-3 mx-auto py-3">GAME START</button>
+    </div>
+    <script>
+        brickData = [
+            {
+                id: "1",
+                color: "crimson",
+                icon: "fa-solid fa-star fa-flip",
+                target: function () {
+                    return "star"
+                }
+            },
+            {
+                id: "2",
+                color: "crimson",
+                icon: "fa-solid fa-heart fa-flip",
+                target: function () {
+                    return "heart"
+                }
+            },
+            {
+                id: "3",
+                color: "crimson",
+                icon: "fa-solid fa-bomb fa-flip",
+                target: function () {
+                    return "bomb"
+                }
+            },
+            {
+                id: "4",
+                color: "crimson",
+                icon: "fa-solid fa-face-smile fa-flip",
+                target: function () {
+                    return "face-smile"
+                }
+            },
+            {
+                id: "5",
+                color: "crimson",
+                icon: "fa-solid fa-pizza-slice fa-flip",
+                target: function () {
+                    return "pizza-slice"
+                }
+            },
+            {
+                id: "6",
+                color: "crimson",
+                icon: "fa-solid fa-star fa-flip",
+                target: function () {
+                    return "star"
+                }
+            },
+            {
+                id: "7",
+                color: "gold",
+                icon: "fa-solid fa-trophy fa-flip",
+                target: function () {
+                    return "trophy"
+                }
+            },
+            {
+                id: "8",
+                color: "crimson",
+                icon: "fa-solid fa-heart fa-flip",
+                target: function () {
+                    return "heart"
+                }
+            },
+            {
+                id: "9",
+                color: "crimson",
+                icon: "fa-solid fa-bomb fa-flip",
+                target: function () {
+                    return "bomb"
+                }
+            },
+            {
+                id: "10",
+                color: "crimson",
+                icon: "fa-solid fa-face-smile fa-flip",
+                target: function () {
+                    return "face-smile"
+                }
+            },
+            {
+                id: "11",
+                color: "crimson",
+                icon: "fa-solid fa-pizza-slice fa-flip",
+                target: function () {
+                    return "pizza-slice"
+                }
+            },
+            {
+                id: "12",
+                color: "crimson",
+                icon: "fa-solid fa-star fa-flip",
+                target: function () {
+                    return "star"
+                }
+            },
+            {
+                id: "13",
+                color: "crimson",
+                icon: "fa-solid fa-heart fa-flip",
+                target: function () {
+                    return "heart"
+                }
+            },
+            {
+                id: "14",
+                color: "crimson",
+                icon: "fa-solid fa-bomb fa-flip",
+                target: function () {
+                    return "bomb"
+                }
+            },
+            {
+                id: "15",
+                color: "crimson",
+                icon: "fa-solid fa-face-smile fa-flip",
+                target: function () {
+                    return "face-smile"
+                }
+            },
+            {
+                id: "16",
+                color: "gold",
+                icon: "fa-solid fa-trophy fa-flip",
+                target: function () {
+                    return "trophy"
+                }
+            },
+            {
+                id: "17",
+                color: "crimson",
+                icon: "fa-solid fa-pizza-slice fa-flip",
+                target: function () {
+                    return "pizza-slice"
+                }
+            },
+            {
+                id: "18",
+                color: "crimson",
+                icon: "fa-solid fa-star fa-flip",
+                target: function () {
+                    return "star"
+                }
+            },
+            {
+                id: "19",
+                color: "crimson",
+                icon: "fa-solid fa-heart fa-flip",
+                target: function () {
+                    return "heart"
+                }
+            },
+            {
+                id: "20",
+                color: "crimson",
+                icon: "fa-solid fa-bomb fa-flip",
+                target: function () {
+                    return "bomb"
+                }
+            },
+            {
+                id: "21",
+                color: "crimson",
+                icon: "fa-solid fa-face-smile fa-flip",
+                target: function () {
+                    return "face-smile"
+                }
+            },
+            {
+                id: "22",
+                color: "crimson",
+                icon: "fa-solid fa-pizza-slice fa-flip",
+                target: function () {
+                    return "pizza-slice"
+                }
+            },
+            {
+                id: "23",
+                color: "crimson",
+                icon: "fa-solid fa-star fa-flip",
+                target: function () {
+                    return "star"
+                }
+            },
+            {
+                id: "24",
+                color: "crimson",
+                icon: "fa-solid fa-heart fa-flip",
+                target: function () {
+                    return "heart"
+                }
+            },
+            {
+                id: "25",
+                color: "crimson",
+                icon: "fa-solid fa-bomb fa-flip",
+                target: function () {
+                    return "bomb"
+                }
+            },
+            {
+                id: "26",
+                color: "crimson",
+                icon: "fa-solid fa-face-smile fa-flip",
+                target: function () {
+                    return "face-smile"
+                }
+            },
+            {
+                id: "27",
+                color: "crimson",
+                icon: "fa-solid fa-pizza-slice fa-flip",
+                target: function () {
+                    return "pizza-slice"
+                }
+            },
+            {
+                id: "28",
+                color: "crimson",
+                icon: "fa-solid fa-star fa-flip",
+                target: function () {
+                    return "star"
+                }
+            },
+            {
+                id: "29",
+                color: "crimson",
+                icon: "fa-solid fa-heart fa-flip",
+                target: function () {
+                    return "heart"
+                }
+            },
+            {
+                id: "30",
+                color: "crimson",
+                icon: "fa-solid fa-bomb fa-flip",
+                target: function () {
+                    return "bomb"
+                }
+            },
+            {
+                id: "31",
+                color: "crimson",
+                icon: "fa-solid fa-face-smile fa-flip",
+                target: function () {
+                    return "face-smile"
+                }
+            },
+            {
+                id: "32",
+                color: "crimson",
+                icon: "fa-solid fa-pizza-slice fa-flip",
+                target: function () {
+                    return "pizza-slice"
+                }
+            },
+
+        ]
+
+        let bricks = document.querySelectorAll("[box-id]")
+        let steps = 0 //剩餘步數
+        let allSteps = 0 //全部步數
+        let currentIndex = 0 //目前走到哪格
+        let speed //速率
+        bricks = Array.from(bricks)
+            .sort((a, b) => {
+                return a.getAttributeNode("box-id").value - b.getAttributeNode("box-id").value
+            })
+        console.log(bricks)
+        bricks.forEach((box, index) => {
+            let id = index + 1
+            let data = brickData.find(box => box.id == id)
+            let icon = document.createElement("i")
+            icon.setAttribute("class", data.icon)
+            icon.style.color = data.color
+            box.appendChild(icon)
+        })
+
+        // start button
+        document.querySelector("button").addEventListener("click", function () {
+            speed = 45
+            let random = Math.floor(Math.random() * brickData.length) + 1
+            console.log(random)
+            steps = random + (1.3 * bricks.length)
+            allSteps = steps
+            turnAround()
+        })
+
+        function turnAround() {
+            bricks[currentIndex].classList.remove("active")
+            currentIndex++
+
+            if (currentIndex >= bricks.length) {
+                currentIndex = 0
+            }
+            bricks[currentIndex].classList.add("active")
+            steps--
+
+
+            if (steps > 0) {
+                setTimeout(turnAround, speed)
+
+                if (steps < Math.floor((allSteps / 3))) {
+                    speed += 10
+                }
+                
+            }
+            else
+                {
+                    let msgBox = document.getElementById("msg")
+                    let val = brickData[currentIndex].target()
+                    msgBox.innerHTML = `${val.toUpperCase()} <i class="fa-solid fa-${val} fa-flip" style="font-size: 56px;"></i>`
+                    console.log(val)
+                }
+        }
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

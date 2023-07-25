@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Leaflet's CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- Leaflet's plugin -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        .container>.row {
+            height: 100vh;
+        }
+
+        #map {
+            height: 50vh;
+        }
+
+        div>span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #FFFFFF;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(15, 18, 199, 0.8);
+            /* 使用 rgba() 設定顏色透明度 */
+        }
+
+        img {
+            width: 30px;
+        }
+
+        @media (min-width: 768px) {
+
+            /* 在md及以上的尺寸地圖改為視窗高度 */
+            #map {
+                height: 100vh;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="container">
+        <div class="row ">
+            <div class="col-12 col-md-6 py-3 " id="content">
+                <div id="map" class=""></div>
+            </div>
+            <div class="col-12 col-md-6 py-3 ">
+                <div class="row d-flex">
+                    <div>
+                        <h2>臺中市停車場位置及可停車位資訊</h2>
+                        <p id="updateInfo">最後更新時間: ...</p>
+                        <p><button class="btn btn-outline-dark" onclick="renew()">更新地圖資料</button></p>
+                        <!-- <p><button onclick="geoFindMe()">Show my location</button></p> -->
+                        <div id="out"></div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-text" id="basic-addon2">請輸入關鍵字</div>
+
+                            <input type="text" class="form-control" placeholder="" aria-label=""
+                                aria-describedby="basic-addon2" id="input">
+                            <button type="button" class="btn btn-outline-dark" id="query">查詢</button>
+
+                        </div>
+                        <div class="text-center">
+                            <img
+                                src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png"> 可停車位剩餘數量不足5　
+                             <img
+                                src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png"> 可停車位剩餘數量大於5　
+                             <img
+                                src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png"> 可停車位數量充足
+                        </div>
+                    </div>
+                </div>
+
+                <div id="queryResult">
+
+                    <!-- <div class="col-12 d-flex text-center">
+                        <div class="col-3 p-1"><strong>地點</strong></div>
+                        <div class="col-3 p-1"><strong>地址</strong></div>
+                        <div class="col-2 p-1"><strong>可借車輛</strong></div>
+                        <div class="col-2 p-1"><strong>可還車輛</strong></div>
+                        <div class="col-2 p-1"><strong></strong></div>
+                    </div>
+                    <div class="col-12 d-flex">
+                        <div class="col-3 p-1">YouBike2.0_國北教大實小東側門</div>
+                        <div class="col-3 p-1">大安區和平東路二段96巷7號</div>
+                        <div class="col-2 p-1 text-center">3</div>
+                        <div class="col-2 p-1 text-center">13</div>
+                        <div class="col-2 p-1 text-end">
+                            <button type="button" class="btn btn-outline-dark">地圖</button>
+                        </div>
+                    </div> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+        let longitude = 121.53627851645064  //經度
+        let latitude = 25.041679505006353 //緯度
+        let zoom = 19 // 縮放，數字越大，地圖越大
+
+        // YouBike JSON連結
+        const url = "https://motoretag.taichung.gov.tw/DataAPI/api/ParkingSpotListAPI"
+        let ParkingLotData = []
+        let map = ""
+        let markers = L.markerClusterGroup() //地圖marker群組物件
+
+        //DOM
+        const updateInfo = document.getElementById("updateInfo")
+        const input = document.getElementById("input")
+        const queryBtn = document.getElementById("query")
+        const query_Result = document.getElementById("queryResult")
+
+
+        //console.log(queryResult)
+
+        window.onload = function () {
+            input.value = ""
+
+            try {
+                //取得使用者的座標
+                geoFindMe()
+                    .then((res) => {
+                        //console.log(res)
+                        latitude = res[0]
+                        longitude = res[1]
+
+                        initFN()// 執行初始化
+                        let goldIcon = new L.Icon({
+                            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png',
+                            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                            iconSize: [25, 41],
+                            iconAnchor: [12, 41],
+                            popupAnchor: [1, -34],
+                            shadowSize: [41, 41]
+                        })
+                        let marker = L.marker([latitude, longitude], { icon: goldIcon }).addTo(map)
+                        marker.bindPopup("你現在所在位置").openPopup()
+
+
+                    })
+                    .catch(e => {
+                        console.log(e)
+                    })
+            }
+            catch (e) {
+                console.log(e)
+
+            }
+
+
+        }
+
+        function initFN() {
+
+            //初始化地圖
+            initMap()
+            getMapData()
+        }
+        input.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+
+                searchResult = ""
+                queryResult()
+
+            }
+        })
+        queryBtn.addEventListener("click", function () {
+            if (input.value == "") {
+                alert("請輸入關鍵字")
+                return
+            }
+            else {
+                searchResult = ""
+                queryResult()
+
+            }
+        })
+
+        //查詢關鍵字邏輯&顯示查詢結果
+        function queryResult() {
+            query_Result.innerHTML = ""
+            let filterDataArray = []
+            let filterData = []
+            ParkingLotData.forEach(parking => {
+                filterData = parking.ParkingLots.filter(parkingLot => {
+                    return parkingLot.Position && parkingLot.Position.includes(input.value)
+
+                })
+                if (filterData.length > 0) {
+                    filterDataArray.push(...filterData)
+                }
+            })
+
+            let searchResult = `
+<div class="col-12 d-flex text-center">
+    <div class="col-3 p-1"><strong>停車場名稱</strong></div>
+                        <div class="col-3 p-1"><strong>資訊</strong></div>
+                        <div class="col-2 p-1"><strong>總車位數</strong></div>
+                        <div class="col-2 p-1"><strong>可停車位數</strong></div>
+                        <div class="col-2 p-1"><strong></strong></div>
+                    </div>`
+            if (filterDataArray.length === 0 || filterDataArray === null) {
+                searchResult += `
+                    <div class="col-12 d-flex text-center">
+                        <div class="col-3 p-1"><strong>查無資料</strong></div>                        
+                    </div>`
+            }
+            else {
+                filterDataArray.forEach(parking => {
+
+                    searchResult += ` <div class="col-12 d-flex">
+                        <div class="col-3 p-1">${parking.Position}</div>
+                        <div class="col-3 p-1">${parking.Notes}</div>
+                        <div class="col-2 p-1 text-center">${parking.TotalCar}</div>
+                        <div class="col-2 p-1 text-center">${parking.AvailableCar}</div>
+                        <div class="col-2 p-1 text-end">
+                            <button type="button" class="btn btn-outline-dark" onclick="goMap(${parking.Y},${parking.X})">地圖</button>
+                        </div>
+                    </div>`
+                })
+            }
+            query_Result.innerHTML = searchResult
+        }
+
+        //按下查詢結果地圖，將畫面帶到該位置
+        function goMap(lat, lng) {
+            //顯示youbike地圖位置
+            map.setView([lat, lng], zoom);
+        }
+
+        function initMap() {
+            getMapData()
+            //初始化地圖(容器)
+            map = L.map('map').setView([latitude, longitude], zoom);
+
+            //載入地圖圖層
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                zoomControl: true, // 是否秀出 - + 按鈕
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(map);
+
+        }
+
+        function renew() {
+            getMapData()
+            if (input.value != "") {
+                queryResult()
+            }
+        }
+        function getMapData() {
+            //取得JSON資料
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    ParkingLotData = data
+
+                    //渲染地圖
+                    renderMap()
+                    dateTime()
+
+                })
+
+
+        }
+        function renderMap() {
+            if (markers) {
+                markers.clearLayers()
+            }
+            let redIcon = new L.Icon({
+                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34],
+                shadowSize: [41, 41]
+            })
+
+            let blueIcon = new L.Icon({
+                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34],
+                shadowSize: [41, 41]
+            })
+            let greenIcon = new L.Icon({
+                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34],
+                shadowSize: [41, 41]
+            })
+            //取得每一筆ParkingLot，加上Markers跟popup
+            ParkingLotData.forEach(parking => {
+                parking.ParkingLots.forEach(parkingLot => {
+                    if (parkingLot.AvailableCar < 5) {
+                        let marker = L.marker([parkingLot.Y, parkingLot.X], { icon: redIcon });
+                        marker.bindPopup(`
+                <h6>${parkingLot.Position}</h6>
+                <p>${parkingLot.Notes}</p>
+                <p>總車位數: ${parkingLot.TotalCar}</p>
+                <p>可停車位數 : ${parkingLot.AvailableCar}</p>\
+                `)
+                        markers.addLayer(marker)
+                    }
+                    else if (parkingLot.AvailableCar > 5) {
+                        let marker = L.marker([parkingLot.Y, parkingLot.X], { icon: greenIcon });
+                        marker.bindPopup(`
+                <h6>${parkingLot.Position}</h6>
+                <p>${parkingLot.Notes}</p>
+                <p>總車位數: ${parkingLot.TotalCar}</p>
+                <p>可停車位數 : ${parkingLot.AvailableCar}</p>\
+                `)
+                        markers.addLayer(marker)
+                    }
+                    else {
+                        let marker = L.marker([parkingLot.Y, parkingLot.X], { icon: blueIcon });
+                        marker.bindPopup(`
+                <h6>${parkingLot.Position}</h6>
+                <p>${parkingLot.Notes}</p>
+                <p>總車位數: ${parkingLot.TotalCar}</p>
+                <p>可停車位數 : ${parkingLot.AvailableCar}</p>\
+                `)
+                        markers.addLayer(marker)
+                    }
+
+                })
+
+
+            })
+            map.addLayer(markers)
+
+        }
+
+
+        function dateTime() {
+            let today = new Date()
+            let year = today.getFullYear()
+            let month = today.getMonth() + 1
+            let date = today.getDate()
+            let hour = today.getHours()
+            let minute = today.getMinutes()
+            //不足兩位數時，前面補0
+            month = upDateInfo(month)
+            date = upDateInfo(date)
+            hour = upDateInfo(hour)
+            minute = upDateInfo(minute)
+            updateInfo.innerText = `最後更新時間 : ${year}/${month}/${date} ${hour}:${minute}`
+        }
+
+        function upDateInfo(data) {
+            let updateData = data < 10 ? "0" + data : data
+            return updateData
+        }
+        function geoFindMe() {
+            //用Promise 包住本來函式的語法，進行非同步
+            return new Promise((resolve, reject) => {
+
+                var output = document.getElementById("out");
+
+                if (!navigator.geolocation) {
+                    output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+                    return;
+                }
+
+                function success(position) {
+                    latitude = position.coords.latitude;
+                    longitude = position.coords.longitude;
+
+                    output.innerHTML =
+                        "<p>緯度 :  " +
+                        latitude +
+                        "° <br>經度 :  " +
+                        longitude +
+                        "°</p>";
+
+                    //Google map API用不到
+                    // var img = new Image();
+                    // img.src =
+                    //     "http://maps.googleapis.com/maps/api/staticmap?center=" +
+                    //     latitude +
+                    //     "," +
+                    //     longitude +
+                    //     "&zoom=13&size=300x300&sensor=false";
+
+                    // output.appendChild(img);
+
+                    //成功時回傳使用者經緯度
+                    return resolve([latitude, longitude])
+                }
+
+                function error() {
+                    output.innerHTML = "Unable to retrieve your location";
+                    latitude = 25.041679505006353
+                    longitude = 121.53627851645064
+                    initFN()
+                }
+
+                output.innerHTML = "<p>Locating…</p>";
+
+                navigator.geolocation.getCurrentPosition(success, error);
+
+            })
+
+        }
+
+
+
+
+
+
+
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

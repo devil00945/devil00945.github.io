@@ -79,9 +79,9 @@
                         </div>
                         <div class="text-center">
                             <img
-                                src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png"> 可停車位剩餘數量不足5　
+                                src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png"> 可停車位剩餘數量不足10　
                              <img
-                                src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png"> 可停車位剩餘數量大於5　
+                                src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png"> 可停車位剩餘數量大於10　
                              <img
                                 src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png"> 可停車位數量充足
                         </div>
@@ -318,7 +318,7 @@
             //取得每一筆ParkingLot，加上Markers跟popup
             ParkingLotData.forEach(parking => {
                 parking.ParkingLots.forEach(parkingLot => {
-                    if (parkingLot.AvailableCar < 5) {
+                    if (parkingLot.AvailableCar < 10) {
                         let marker = L.marker([parkingLot.Y, parkingLot.X], { icon: redIcon });
                         marker.bindPopup(`
                 <h6>${parkingLot.Position}</h6>
@@ -328,7 +328,7 @@
                 `)
                         markers.addLayer(marker)
                     }
-                    else if (parkingLot.AvailableCar > 5) {
+                    else if (parkingLot.AvailableCar > 10) {
                         let marker = L.marker([parkingLot.Y, parkingLot.X], { icon: greenIcon });
                         marker.bindPopup(`
                 <h6>${parkingLot.Position}</h6>
